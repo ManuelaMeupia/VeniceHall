@@ -1,29 +1,42 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
+import RoomCarousel from './components/RoomCarousel';
 import './App.css';
 
 function App() {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="App">
       <Navbar />
       
-      {/* Sections de test */}
-      <section id="accueil" style={{ height: '100vh', background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h1>Section Accueil</h1>
+      {/* SECTION ACCUEIL */}
+      <Hero scrollToSection={scrollToSection} />
+      
+      {/* SECTION SALLES */}
+      <section id="salles" className="section-salles">
+        <RoomCarousel />
       </section>
       
-      <section id="salles" style={{ height: '100vh', background: '#e0e0e0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h1>Section Salles</h1>
-      </section>
+      {/* SECTION À PROPOS */}
+      <About />
       
-      <section id="a-propos" style={{ height: '100vh', background: '#d0d0d0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h1>Section À Propos</h1>
-      </section>
-      
-      <section id="contact" style={{ height: '100vh', background: '#c0c0c0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <h1>Section Contact</h1>
-      </section>
+      {/* SECTION CONTACT - Maintenant dans Contact.jsx */}
+      <Contact />
 
       <Footer />
     </div>

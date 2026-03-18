@@ -40,19 +40,19 @@ const Footer = () => {
             
             {/* Social Media Links */}
             <div className="social-links">
-              <a href="#" className="social-link" aria-label="Facebook">
+              <a href="/" className="social-link" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#" className="social-link" aria-label="Instagram">
+              <a href="/" className="social-link" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="#" className="social-link" aria-label="Tiktok">
+              <a href="/" className="social-link" aria-label="Tiktok">
                 <i className="fab fa-tiktok"></i>
               </a>
-              <a href="#" className="social-link" aria-label="LinkedIn">
+              <a href="/" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="#" className="social-link" aria-label="YouTube">
+              <a href="/" className="social-link" aria-label="YouTube">
                 <i className="fab fa-youtube"></i>
               </a>
             </div>
@@ -163,22 +163,22 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-bottom-container">
             <p className="copyright">
-              &copy; {currentYear} EventSpace. Tous droits réservés.
+              &copy; {currentYear} Venice Hall. Tous droits réservés.
             </p>
             <div className="footer-bottom-links">
-              <a href="#" className="bottom-link">
+              <a href="/" className="bottom-link">
                 <i className="fas fa-shield-alt"></i>
                 Mentions légales
               </a>
-              <a href="#" className="bottom-link">
+              <a href="/" className="bottom-link">
                 <i className="fas fa-lock"></i>
                 Politique de confidentialité
               </a>
-              <a href="#" className="bottom-link">
+              {/* <a href="/" className="bottom-link">
                 <i className="fas fa-file-contract"></i>
                 CGV
-              </a>
-              <a href="#" className="bottom-link">
+              </a> */}
+              <a href="/" className="bottom-link">
                 <i className="fas fa-cookie-bite"></i>
                 Cookies
               </a>
