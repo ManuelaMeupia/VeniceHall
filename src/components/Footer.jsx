@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Section 1 - À propos */}
           <div className="footer-section">
             <div className="footer-logo" onClick={() => scrollToSection('accueil')}>
-              <span className="logo-icon">🎉</span>
+              <span className="logo-icon"><img src="/img/Logo.jpeg" alt="Venice Hall" className="logo-image" /></span>
               <span className="logo-text">VENICE HALL</span>
             </div>
             <p className="footer-description">

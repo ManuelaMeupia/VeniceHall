@@ -1,23 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Navbar.css';
 
-import { AiFillHome } from "react-icons/ai";
+// Import des icônes React
+import { 
+  AiFillHome, 
+  AiOutlineSearch,
+} from "react-icons/ai";
+import { 
+  FaImages, 
+  FaInfoCircle,
+  FaBell,
+  FaUserCircle 
+} from "react-icons/fa";
+import { 
+  IoMdMail, 
+  IoMdMenu, 
+  IoMdClose 
+} from "react-icons/io";
+import { 
+  MdEvent 
+} from 'react-icons/md';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('accueil');
+  const [showSearch, setShowSearch] = useState(false);
   
-  // Références pour détecter les clics en dehors du menu
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const searchRef = useRef(null);
 
   // Détection du scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -31,106 +49,34 @@ const Navbar = () => {
           !hamburgerRef.current.contains(event.target)) {
         setIsMenuOpen(false);
       }
+      
+      if (showSearch && 
+          searchRef.current && 
+          !searchRef.current.contains(event.target)) {
+        setShowSearch(false);
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, showSearch]);
 
   // Empêcher le scroll du body quand le menu est ouvert
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('no-scroll');
-    } else {
-      document.body.style.overflow = 'unset';
-      document.body.classList.remove('no-scroll');
-    }
-    
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
-      document.body.classList.remove('no-scroll');
-    };
-  }, [isMenuOpen]);
-
-  // Fermer le menu quand on redimensionne l'écran (passage en desktop)
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768 && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMenuOpen]);
-
-  // Fermer le menu avec la touche Echap
-  useEffect(() => {
-    const handleEsc = (event) => {
-      if (event.keyCode === 27 && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-    
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [isMenuOpen]);
-
-  // Détection du swipe pour fermer le menu sur mobile
-  useEffect(() => {
-    if (!isMenuOpen) return;
-
-    let touchStart = null;
-    let touchEnd = null;
-
-    const handleTouchStart = (e) => {
-      touchStart = e.targetTouches[0].clientX;
-    };
-
-    const handleTouchMove = (e) => {
-      touchEnd = e.targetTouches[0].clientX;
-    };
-
-    const handleTouchEnd = () => {
-      if (!touchStart || !touchEnd) return;
-      
-      const distance = touchStart - touchEnd;
-      const isLeftSwipe = distance > 50; // Swipe vers la gauche
-      
-      if (isLeftSwipe && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-      
-      touchStart = null;
-      touchEnd = null;
-    };
-
-    const menuElement = menuRef.current;
-    
-    if (menuElement) {
-      menuElement.addEventListener('touchstart', handleTouchStart);
-      menuElement.addEventListener('touchmove', handleTouchMove);
-      menuElement.addEventListener('touchend', handleTouchEnd);
-    }
-
-    return () => {
-      if (menuElement) {
-        menuElement.removeEventListener('touchstart', handleTouchStart);
-        menuElement.removeEventListener('touchmove', handleTouchMove);
-        menuElement.removeEventListener('touchend', handleTouchEnd);
-      }
     };
   }, [isMenuOpen]);
 
   // Navigation vers les sections
   const scrollToSection = (sectionId) => {
     setActiveLink(sectionId);
-    setIsMenuOpen(false); // Fermer le menu après clic
+    setIsMenuOpen(false);
     
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Hauteur de la navbar
+      const offset = 80;
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({
         top: elementPosition,
@@ -139,105 +85,144 @@ const Navbar = () => {
     }
   };
 
-  // Fonction pour basculer le menu
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Fonction pour fermer le menu
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="nav-container">
         {/* Logo */}
-        <div className="nav-logo" onClick={() => scrollToSection('accueil')} role="button" tabIndex={0}>
-          <span className="logo-icon">🎉</span>
-          <span className="logo-text">Venice Hall</span>
+        <div className="nav-logo" onClick={() => scrollToSection('accueil')}>
+          <div className="logo-wrapper">
+            <span className="logo-icon">
+              <img src="/img/Logo.jpeg" alt="Venice Hall" className="logo-image" />
+            </span>
+          <div className="logo-text-wrapper">
+            <span className="logo-text-primary">Venice</span>
+            <span className="logo-text-secondary">Hall</span>
+          </div>
+        </div>
+        </div>
+
+        {/* Barre de recherche */}
+        <div className={`search-wrapper ${showSearch ? 'active' : ''}`} ref={searchRef}>
+          <input 
+            type="text" 
+            placeholder="Rechercher une salle..."
+            className="search-input"
+          />
+          <button className="search-btn">
+            <AiOutlineSearch />
+          </button>
         </div>
 
         {/* Menu de navigation */}
-        <ul 
-          className={`nav-menu ${isMenuOpen ? 'active' : ''}`} 
-          ref={menuRef}
-        >
+        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} ref={menuRef}>
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('accueil')}
               className={`nav-link ${activeLink === 'accueil' ? 'active' : ''}`}
-            > <AiFillHome /> 
-              Accueil
+            >
+              <span className="nav-icon">
+                <AiFillHome />
+              </span>
+              <span className="nav-text">Accueil</span>
+              {activeLink === 'accueil' && <span className="nav-dot"></span>}
             </button>
           </li>
+
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('salles')}
               className={`nav-link ${activeLink === 'salles' ? 'active' : ''}`}
             >
-              Nos Salles
+              <span className="nav-icon">
+                <FaImages />
+              </span>
+              <span className="nav-text">Nos Salles</span>
+              {activeLink === 'salles' && <span className="nav-dot"></span>}
             </button>
           </li>
+
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('a-propos')}
               className={`nav-link ${activeLink === 'a-propos' ? 'active' : ''}`}
             >
-              À Propos
+              <span className="nav-icon">
+                <FaInfoCircle />
+              </span>
+              <span className="nav-text">À Propos</span>
+              {activeLink === 'a-propos' && <span className="nav-dot"></span>}
             </button>
           </li>
+
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('contact')}
               className={`nav-link ${activeLink === 'contact' ? 'active' : ''}`}
             >
-              Contact
+              <span className="nav-icon">
+                <IoMdMail />
+              </span>
+              <span className="nav-text">Contact</span>
+              {activeLink === 'contact' && <span className="nav-dot"></span>}
             </button>
           </li>
-          
-          {/* Bouton de fermeture explicite pour mobile */}
-          <li className="nav-item mobile-only close-menu-item">
+
+          {/* Éléments visibles UNIQUEMENT sur mobile */}
+          <li className="nav-item mobile-only reservation-item">
             <button 
-              className="close-menu-btn"
-              onClick={closeMenu}
-              aria-label="Fermer le menu"
-            >
-              <i className="fas fa-times"></i>
-              Fermer
-            </button>
-          </li>
-          
-          {/* Bouton de réservation pour mobile */}
-          <li className="nav-item mobile-only">
-            <button 
-              className="nav-btn-reservation mobile"
+              className="nav-reservation-btn"
               onClick={() => scrollToSection('salles')}
             >
-              Réserver maintenant
+              <FaBell className="btn-icon" />
+              <span>Réserver maintenant</span>
+            </button>
+          </li>
+
+          <li className="nav-item mobile-only close-item">
+            <button 
+              className="close-menu-btn"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <IoMdClose className="close-icon" />
+              <span>Fermer</span>
             </button>
           </li>
         </ul>
 
-        {/* Bouton de réservation pour desktop */}
-        <button 
-          className="nav-btn-reservation desktop"
-          onClick={() => scrollToSection('salles')}
-        >
-          Réserver
-        </button>
+        {/* Actions à droite (visibles UNIQUEMENT sur desktop) */}
+        <div className="nav-actions desktop-only">
+          <button 
+            className="action-btn search-toggle"
+            onClick={() => setShowSearch(!showSearch)}
+          >
+            <AiOutlineSearch />
+          </button>
 
-        {/* Hamburger menu pour mobile */}
+          <button className="action-btn notification-btn">
+            <FaBell />
+            <span className="notification-badge">3</span>
+          </button>
+
+          <button 
+            className="reservation-btn"
+            onClick={() => scrollToSection('salles')}
+          >
+            <MdEvent className="btn-icon" />
+            <span>Réserver</span>
+          </button>
+
+          <button className="action-btn profile-btn">
+            <FaUserCircle />
+          </button>
+        </div>
+
+        {/* Hamburger menu (visible UNIQUEMENT sur mobile) */}
         <button 
-          className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-          onClick={toggleMenu}
+          className="hamburger mobile-only"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           ref={hamburgerRef}
-          aria-label="Menu principal"
-          aria-expanded={isMenuOpen}
         >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+          <IoMdMenu className="hamburger-icon" />
         </button>
       </div>
     </nav>
