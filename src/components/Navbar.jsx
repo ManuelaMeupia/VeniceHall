@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 // Import des icônes React
@@ -9,8 +10,8 @@ import {
 import { 
   FaImages, 
   FaInfoCircle,
-  FaBell,
-  FaUserCircle 
+  // FaBell,
+  // FaUserCircle 
 } from "react-icons/fa";
 import { 
   IoMdMail, 
@@ -22,10 +23,13 @@ import {
 } from 'react-icons/md';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('accueil');
   const [showSearch, setShowSearch] = useState(false);
+  const [pendingScroll, setPendingScroll] = useState(null);
   
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -39,6 +43,24 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Gérer le scroll après la navigation depuis la page de réservation
+  useEffect(() => {
+    if (pendingScroll && location.pathname === '/') {
+      setTimeout(() => {
+        const element = document.getElementById(pendingScroll);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.offsetTop - offset;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }
+        setPendingScroll(null);
+      }, 200);
+    }
+  }, [location.pathname, pendingScroll]);
 
   // Fermer le menu quand on clique en dehors
   useEffect(() => {
@@ -74,15 +96,28 @@ const Navbar = () => {
     setActiveLink(sectionId);
     setIsMenuOpen(false);
     
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+    // Si on n'est pas sur la page d'accueil, on y va d'abord
+    if (location.pathname !== '/') {
+      setPendingScroll(sectionId);
+      navigate('/');
+    } else {
+      // Si on est sur l'accueil, on scroll directement
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const offset = 80;
+        const elementPosition = element.offsetTop - offset;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
     }
+  };
+
+  // Navigation vers la page de réservation
+  const goToReservation = () => {
+    navigate('/reservation');
+    setIsMenuOpen(false);
   };
 
   return (
@@ -94,11 +129,11 @@ const Navbar = () => {
             <span className="logo-icon">
               <img src="/img/Logo.jpeg" alt="Venice Hall" className="logo-image" />
             </span>
-          <div className="logo-text-wrapper">
-            <span className="logo-text-primary">Venice</span>
-            <span className="logo-text-secondary">Hall</span>
+            <div className="logo-text-wrapper">
+              <span className="logo-text-primary">Venice Hall</span>
+              {/* <span className="logo-text-secondary">Hall</span> */}
+            </div>
           </div>
-        </div>
         </div>
 
         {/* Barre de recherche */}
@@ -171,9 +206,9 @@ const Navbar = () => {
           <li className="nav-item mobile-only reservation-item">
             <button 
               className="nav-reservation-btn"
-              onClick={() => scrollToSection('salles')}
+              onClick={goToReservation}
             >
-              <FaBell className="btn-icon" />
+              <MdEvent className="btn-icon" />
               <span>Réserver maintenant</span>
             </button>
           </li>
@@ -191,29 +226,29 @@ const Navbar = () => {
 
         {/* Actions à droite (visibles UNIQUEMENT sur desktop) */}
         <div className="nav-actions desktop-only">
-          <button 
+          {/* <button 
             className="action-btn search-toggle"
             onClick={() => setShowSearch(!showSearch)}
           >
             <AiOutlineSearch />
-          </button>
+          </button> */}
 
-          <button className="action-btn notification-btn">
+          {/* <button className="action-btn notification-btn">
             <FaBell />
             <span className="notification-badge">3</span>
-          </button>
+          </button> */}
 
           <button 
             className="reservation-btn"
-            onClick={() => scrollToSection('salles')}
+            onClick={goToReservation}
           >
             <MdEvent className="btn-icon" />
             <span>Réserver</span>
           </button>
 
-          <button className="action-btn profile-btn">
+          {/* <button className="action-btn profile-btn">
             <FaUserCircle />
-          </button>
+          </button> */}
         </div>
 
         {/* Hamburger menu (visible UNIQUEMENT sur mobile) */}

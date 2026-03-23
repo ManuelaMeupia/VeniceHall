@@ -1,10 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import RoomCarousel from './components/RoomCarousel';
+import Reservation from './components/Reservation';
 import './App.css';
 
 function App() {
@@ -21,25 +23,27 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Navbar />
-      
-      {/* SECTION ACCUEIL */}
-      <Hero scrollToSection={scrollToSection} />
-      
-      {/* SECTION SALLES */}
-      <section id="salles" className="section-salles">
-        <RoomCarousel />
-      </section>
-      
-      {/* SECTION À PROPOS */}
-      <About />
-      
-      {/* SECTION CONTACT - Maintenant dans Contact.jsx */}
-      <Contact />
+    <Router>
+      <div className="App">
+        <Navbar />
+        
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero scrollToSection={scrollToSection} />
+              <section id="salles" className="section-salles">
+                <RoomCarousel />
+              </section>
+              <About />
+              <Contact />
+            </>
+          } />
+          <Route path="/reservation" element={<Reservation />} />
+        </Routes>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

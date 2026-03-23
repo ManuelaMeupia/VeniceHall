@@ -10,7 +10,7 @@ const Hero = ({ scrollToSection }) => {
         {/* Badge de bienvenue */}
         <span className="hero-badge">
           <i className="fas fa-sparkles"></i>
-          Bienvenue chez EventSpace
+          Bienvenue chez Venice Hall
         </span>
 
         {/* Titre principal */}
@@ -44,7 +44,7 @@ const Hero = ({ scrollToSection }) => {
         </div>
 
         {/* Statistiques */}
-        <div className="hero-stats">
+        {/* <div className="hero-stats">
           <div className="stat-item">
             <span className="stat-number">50+</span>
             <span className="stat-label">Salles disponibles</span>
@@ -57,10 +57,10 @@ const Hero = ({ scrollToSection }) => {
             <span className="stat-number">10+</span>
             <span className="stat-label">Ans d'expérience</span>
           </div>
-        </div>
+        </div> */}
 
         {/* Avis clients */}
-        <div className="hero-reviews">
+        {/* <div className="hero-reviews">
           <div className="review-stars">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
@@ -70,7 +70,7 @@ const Hero = ({ scrollToSection }) => {
             <span className="review-rating">4.9</span>
           </div>
           <span className="review-text">Basé sur 500+ avis vérifiés</span>
-        </div>
+        </div> */}
 
         {/* Features rapides */}
         <div className="hero-features">

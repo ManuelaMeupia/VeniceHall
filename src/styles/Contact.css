@@ -1,4 +1,3 @@
-/* ========== SECTION CONTACT ========== */
 .contact {
   min-height: 100vh;
   display: flex;
@@ -6,6 +5,7 @@
   justify-content: center;
   padding: 100px 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: #5c2abd; */
   scroll-margin-top: 80px;
   position: relative;
   overflow: hidden;
@@ -112,7 +112,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #5c2abd;
   border-radius: 2px;
 }
 
@@ -130,27 +130,35 @@
 }
 
 .info-icon {
-  width: 50px;
+  /* width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #5c2abd;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.3rem;
-  flex-shrink: 0;
+  /*font-size: 1.3rem;
+  flex-shrink: 0; */
 }
+ /* .info-icon i {
+  font-size: 2rem !important;
+  color: #ffffff;
+} */
+
+
 
 .info-details h4 {
   font-size: 1.1rem;
   color: #333;
   margin-bottom: 0.3rem;
+  text-align: left;
 }
 
 .info-details p {
   color: #666;
   line-height: 1.5;
+  text-align: left;
 }
 
 /* Réseaux sociaux */
@@ -173,17 +181,17 @@
 .contact-social .social-link {
   width: 45px;
   height: 45px;
-  background: #f5f5f5;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #667eea;
+  color: #5c2abd;
   transition: all 0.3s ease;
+  /* background: #5c2abd; */
 }
 
 .contact-social .social-link:hover {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: none;
   color: white;
   transform: translateY(-3px);
 }
@@ -255,7 +263,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #5c2abd;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -276,7 +284,7 @@
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #5c2abd;
   color: white;
   border: none;
   border-radius: 10px;
@@ -390,8 +398,6 @@
   opacity: 0.9;
   line-height: 1.5;
 }
-
-/* ===== RESPONSIVE ===== */
 
 /* Tablettes */
 @media screen and (max-width: 992px) {

@@ -49,7 +49,7 @@
   height: 100%;
 }
 
-/* ========== LOGO ========== */
+/*LOGO*/
 
 .logo-image {
   width: 90px;
@@ -84,7 +84,8 @@
 .logo-text-primary {
   font-size: 1.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
+  background-color: #5c2abd;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -100,7 +101,7 @@
   color: var(--gray);
 }
 
-/* ========== BARRE DE RECHERCHE ========== */
+/* BARRE DE RECHERCHE */
 .search-wrapper {
   position: relative;
   width: 0;
@@ -116,7 +117,7 @@
 .search-input {
   width: 100%;
   padding: 0.8rem 1rem 0.8rem 3rem;
-  border: 2px solid transparent;
+  border: 2px solid transparent ;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -132,7 +133,7 @@
 
 .search-input:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: #5c2abd;
   background: var(--white);
   color: var(--dark);
 }
@@ -144,7 +145,7 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: var(--gray);
+  color: #5c2abd;
   font-size: 1.2rem;
   cursor: pointer;
   display: flex;
@@ -152,7 +153,7 @@
   justify-content: center;
 }
 
-/* ========== MENU DE NAVIGATION ========== */
+/*MENU DE NAVIGATION*/
 .nav-menu {
   display: flex;
   align-items: center;
@@ -184,7 +185,7 @@
 }
 
 .navbar-scrolled .nav-link {
-  color: var(--dark);
+  color: #5c2abd;
 }
 
 .nav-link::before {
@@ -195,7 +196,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: #5b2abd3f;
   transform: translate(-50%, -50%);
   transition: width 0.6s, height 0.6s;
 }
@@ -218,6 +219,7 @@
 
 .nav-text {
   position: relative;
+  /* color: #5c2abd; */
 }
 
 .nav-dot {
@@ -233,12 +235,12 @@
 }
 
 .nav-link.active {
-  background: rgba(255, 255, 255, 0.15);
+  background:#5b2abd44;
   font-weight: 600;
 }
 
 .navbar-scrolled .nav-link.active {
-  background: rgba(102, 126, 234, 0.1);
+  background: #5b2abd53;
   color: var(--primary);
 }
 
@@ -298,7 +300,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background-color: #5c2abd;
   border: none;
   border-radius: 50px;
   color: var(--white);
@@ -536,7 +538,7 @@
     width: 85%;
     max-width: 350px;
     height: 100vh;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background-color: #5c2abd;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
@@ -599,7 +601,7 @@
     background: white;
     border: none;
     border-radius: 50px;
-    color: var(--primary);
+    color: #5c2abd;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;

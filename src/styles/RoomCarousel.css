@@ -9,7 +9,7 @@
   text-align: center;
   font-size: clamp(2rem, 5vw, 2.5rem);
   margin-bottom: 3rem;
-  color: #333;
+  color: #5c2abd;
   position: relative;
 }
 
@@ -18,7 +18,7 @@
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #5c2abd;
   margin: 15px auto 0;
   border-radius: 2px;
 }
@@ -96,11 +96,11 @@
 }
 
 .room-details i {
-  color: #667eea;
+  color: #5c2abd;
 }
 
 .room-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #5c2abd;
   color: white;
   border: none;
   padding: 0.8rem 2rem;
@@ -113,7 +113,7 @@
 
 .room-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(156, 164, 202, 0.4);
 }
 
 /* Flèches de navigation */
@@ -139,7 +139,7 @@
 
 .carousel-arrow:hover {
   background: white;
-  color: #667eea;
+  color: #5c2abd;
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -167,6 +167,7 @@
   height: 12px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
+  /* background: #5c2abd; */
   border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -197,7 +198,7 @@
 .auto-play-bar {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #667eea, #764ba2);
+  background: #5c2abd;
   transition: width linear;
 }
 
@@ -248,7 +249,7 @@
 }
 
 .thumbnail.active {
-  border-color: #667eea;
+  border-color: #5c2abd;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }

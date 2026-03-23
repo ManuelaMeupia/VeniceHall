@@ -12,7 +12,7 @@ const RoomCarousel = () => {
       id: 1,
       name: "Salle Élégance",
       capacity: "150 personnes",
-      price: "500€",
+      price: "800 000 FCFA",
       image: "/img/img1.jpg",
       description: "Magnifique salle avec lustres en cristal et parquet"
     },
@@ -44,7 +44,7 @@ const RoomCarousel = () => {
       id: 5,
       name: "Espace Contemporain",
       capacity: "80 personnes",
-      price: "350€",
+      price: "400 000 FCFA",
       image: "/img/img5.jpg",
       description: "Design moderne et épuré"
     },
@@ -52,7 +52,7 @@ const RoomCarousel = () => {
       id: 6,
       name: "Espace Contemporain",
       capacity: "80 personnes",
-      price: "350€",
+      price: "300 000 FCFA",
       image: "/img/img6.jpg",
       description: "Design moderne et épuré"
     }
@@ -109,7 +109,7 @@ const RoomCarousel = () => {
 
   return (
     <div className="carousel-container">
-      <h2 className="carousel-title">Nos Salles d'Exception</h2>
+      <h2 className="carousel-title">Nos Salles</h2>
       
       <div 
         className="carousel-wrapper"
@@ -140,7 +140,7 @@ const RoomCarousel = () => {
                     <i className="fas fa-users"></i> {room.capacity}
                   </span>
                   <span className="room-price">
-                    <i className="fas fa-euro-sign"></i> {room.price}
+                    <i className="fas fa-franc-sign"></i> {room.price}
                   </span>
                 </div>
                 <button className="room-btn">Réserver</button>

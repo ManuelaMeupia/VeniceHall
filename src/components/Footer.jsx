@@ -52,9 +52,9 @@ const Footer = () => {
               <a href="/" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="/" className="social-link" aria-label="YouTube">
+              {/* <a href="/" className="social-link" aria-label="YouTube">
                 <i className="fab fa-youtube"></i>
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -94,28 +94,28 @@ const Footer = () => {
             <h3 className="footer-title">Contact</h3>
             <ul className="contact-info">
               <li>
-                <i className="fas fa-map-marker-alt"></i>
+                <i className="fas fa-map-marker-alt" style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Adresse</span>
                   <span>Yaoundé, Texaco Omnisport</span>
                 </div>
               </li>
               <li>
-                <i className="fas fa-phone-alt"></i>
+                <i className="fas fa-phone-alt"  style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Téléphone</span>
                   <span>+237 6</span>
                 </div>
               </li>
               <li>
-                <i className="fas fa-envelope"></i>
+                <i className="fas fa-envelope"  style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Email</span>
                   <span>contact@venicehall.com</span>
                 </div>
               </li>
               <li>
-                <i className="fas fa-clock"></i>
+                <i className="fas fa-clock" style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Horaires</span>
                   <span>Lun-Ven: 8h - 17h</span>

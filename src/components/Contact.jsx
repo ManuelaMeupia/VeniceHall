@@ -141,11 +141,11 @@ const Contact = () => {
           <div className="contact-info">
             <div className="info-card">
               <h3 className="info-title">Informations de contact</h3>
-              
+             
               <div className="info-items">
                 <div className="info-item">
                   <div className="info-icon">
-                    <i className="fas fa-map-marker-alt"></i>
+                    <i class="fas fa-map-marker-alt" style={{color:"#5c2abd"}}></i>
                   </div>
                   <div className="info-details">
                     <h4>Adresse</h4>
@@ -155,7 +155,7 @@ const Contact = () => {
 
                 <div className="info-item">
                   <div className="info-icon">
-                    <i className="fas fa-phone-alt"></i>
+                    <i className="fas fa-phone-alt" style={{color:"#5c2abd"}}></i>
                   </div>
                   <div className="info-details">
                     <h4>Téléphone</h4>
@@ -165,7 +165,7 @@ const Contact = () => {
 
                 <div className="info-item">
                   <div className="info-icon">
-                    <i className="fas fa-envelope"></i>
+                    <i className="fas fa-envelope" style={{color:"#5c2abd"}}></i>
                   </div>
                   <div className="info-details">
                     <h4>Email</h4>
@@ -175,7 +175,7 @@ const Contact = () => {
 
                 <div className="info-item">
                   <div className="info-icon">
-                    <i className="fas fa-clock"></i>
+                    <i className="fas fa-clock" style={{color:"#5c2abd"}}></i>
                   </div>
                   <div className="info-details">
                     <h4>Horaires</h4>
@@ -190,16 +190,16 @@ const Contact = () => {
                 <h4>Suivez-nous</h4>
                 <div className="social-links">
                   <a href="/" className="social-link" aria-label="Facebook">
-                    <i className="fab fa-facebook-f"></i>
+                    <i className="fab fa-facebook-f" style={{color:"#5c2abd"}}></i>
                   </a>
                   <a href="/" className="social-link" aria-label="Instagram">
-                    <i className="fab fa-instagram"></i>
+                    <i className="fab fa-instagram" style={{color:"#5c2abd"}}></i>
                   </a>
-                  <a href="/" className="social-link" aria-label="Twitter">
-                    <i className="fab fa-twitter"></i>
+                  <a href="/" className="social-link" aria-label="Tiktok">
+                    <i className="fab fa-tiktok" style={{color:"#5c2abd"}}></i>
                   </a>
                   <a href="/" className="social-link" aria-label="LinkedIn">
-                    <i className="fab fa-linkedin-in"></i>
+                    <i className="fab fa-linkedin-in" style={{color:"#5c2abd"}}></i>
                   </a>
                 </div>
               </div>
