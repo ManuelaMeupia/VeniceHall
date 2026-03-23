@@ -2,6 +2,18 @@ import React from 'react';
 import '../styles/About.css';
 
 const About = () => {
+ const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   return (
     <section id="a-propos" className="about">
       <div className="about-container">
@@ -123,7 +135,7 @@ const About = () => {
             </div> */}
 
             {/* Bouton de contact */}
-            <button className="about-contact-btn">
+            <button className="about-contact-btn"  onClick={scrollToContact} >
               <i className="fas fa-envelope"></i>
               Contactez notre équipe
             </button>

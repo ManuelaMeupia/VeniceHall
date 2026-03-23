@@ -48,26 +48,26 @@ const ReservationPDF = ({ reservationData, onDownloadComplete }) => {
           lineHeight: '1.5',
           color: '#333'
         }}>
-          {/* En-tête avec logo à gauche */}
+          
+          {/* ==================== EN-TÊTE ==================== */}
           <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
+            display: 'grid',
+            gridTemplateColumns: '1fr auto 1fr',
             alignItems: 'center',
             marginBottom: '30px', 
             paddingBottom: '20px', 
             borderBottom: '3px solid #5c2abd' 
           }}>
             {/* Logo et nom à gauche */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', justifyContent: 'flex-start' }}>
               <div style={{ 
-                width: '60px', 
-                height: '60px', 
+                width: '55px', 
+                height: '55px', 
                 background: '#5c2abd', 
                 borderRadius: '12px', 
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                 overflow: 'hidden'
               }}>
                 <img 
@@ -76,68 +76,82 @@ const ReservationPDF = ({ reservationData, onDownloadComplete }) => {
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<span style="color:white;font-weight:bold;font-size:20px">VH</span>';
+                    e.target.parentElement.innerHTML = '<span style="color:white;font-weight:bold;font-size:18px">VH</span>';
                   }}
                 />
               </div>
               <div>
-                <h1 style={{ color: '#5c2abd', margin: 0, fontSize: '24px' }}>Venice Hall</h1>
-                <p style={{ color: '#666', margin: '5px 0 0 0', fontSize: '12px' }}>Salles de fête d'exception</p>
+                <h1 style={{ color: '#5c2abd', margin: 0, fontSize: '20px' }}>Venice Hall</h1>
+                <p style={{ color: '#666', margin: '3px 0 0 0', fontSize: '10px' }}>Salles de fête</p>
               </div>
             </div>
             
+            {/* Centre vide pour équilibre */}
+            <div></div>
+            
             {/* Numéro de réservation à droite */}
-            <div style={{ textAlign: 'right' }}>
-              <p style={{ margin: 0, fontSize: '10px', color: '#999' }}>N° de réservation</p>
-              <p style={{ margin: 0, fontSize: '14px', fontWeight: 'bold', color: '#5c2abd' }}>{reference}</p>
+            <div >
+              <p style={{ margin: 0, fontSize: '9px', color: '#999' }}>N° de réservation</p>
+              <p style={{ 
+                margin: '3px 0 0 0', 
+                fontSize: '11px', 
+                fontWeight: 'bold', 
+                color: '#5c2abd',
+                background: '#f5f5f5',
+                padding: '4px 8px',
+                borderRadius: '6px',
+                display: 'inline-block'
+              }}>
+                {reference}
+              </p>
             </div>
           </div>
 
           {/* Titre principal */}
-          <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-            <h2 style={{ color: '#5c2abd', fontSize: '28px', margin: 0 }}>Confirmation de réservation</h2>
-            <p style={{ color: '#666', margin: '10px 0 5px 0' }}>Merci d'avoir choisi Venice Hall</p>
+          <div style={{ textAlign: 'center', marginBottom: '25px' }}>
+            <h2 style={{ color: '#5c2abd', fontSize: '24px', margin: 0 }}>Confirmation de réservation</h2>
+            <p style={{ color: '#666', margin: '8px 0 5px 0', fontSize: '11px' }}>Merci d'avoir choisi Venice Hall</p>
             <div style={{ 
-              width: '80px', 
-              height: '3px', 
+              width: '60px', 
+              height: '2px', 
               background: '#5c2abd', 
-              margin: '15px auto',
+              margin: '12px auto',
               borderRadius: '2px'
             }}></div>
           </div>
 
           {/* Informations client */}
           <div style={{ 
-            marginBottom: '20px', 
-            padding: '15px', 
+            marginBottom: '18px', 
+            padding: '12px', 
             background: '#f8f9fa', 
-            borderRadius: '10px',
+            borderRadius: '8px',
             border: '1px solid #e9ecef'
           }}>
             <h3 style={{ 
               color: '#5c2abd', 
-              margin: '0 0 15px 0', 
-              fontSize: '16px',
+              margin: '0 0 12px 0', 
+              fontSize: '14px',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px'
+              gap: '6px'
             }}>
-              <span style={{ background: '#5c2abd', width: '8px', height: '8px', borderRadius: '50%', display: 'inline-block' }}></span>
+              <span style={{ background: '#5c2abd', width: '6px', height: '6px', borderRadius: '50%', display: 'inline-block' }}></span>
               Informations client
             </h3>
-            <table style={{ width: '100%' }}>
+            <table style={{ width: '100%', fontSize: '11px' }}>
               <tbody>
                 <tr style={{ borderBottom: '1px solid #e9ecef' }}>
-                  <td style={{ padding: '8px 0', fontWeight: 'bold', width: '35%' }}>Nom complet :</td>
-                  <td style={{ padding: '8px 0' }}>{reservationData.nom}</td>
+                  <td style={{ padding: '6px 0', fontWeight: 'bold', width: '35%' }}>Nom complet :</td>
+                  <td style={{ padding: '6px 0' }}>{reservationData.nom}</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #e9ecef' }}>
-                  <td style={{ padding: '8px 0', fontWeight: 'bold' }}>Email :</td>
-                  <td style={{ padding: '8px 0' }}>{reservationData.email}</td>
+                  <td style={{ padding: '6px 0', fontWeight: 'bold' }}>Email :</td>
+                  <td style={{ padding: '6px 0' }}>{reservationData.email}</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '8px 0', fontWeight: 'bold' }}>Téléphone :</td>
-                  <td style={{ padding: '8px 0' }}>{reservationData.telephone}</td>
+                  <td style={{ padding: '6px 0', fontWeight: 'bold' }}>Téléphone :</td>
+                  <td style={{ padding: '6px 0' }}>{reservationData.telephone}</td>
                 </tr>
               </tbody>
             </table>
@@ -145,47 +159,47 @@ const ReservationPDF = ({ reservationData, onDownloadComplete }) => {
 
           {/* Détails de l'événement */}
           <div style={{ 
-            marginBottom: '20px', 
-            padding: '15px', 
+            marginBottom: '18px', 
+            padding: '12px', 
             background: '#f8f9fa', 
-            borderRadius: '10px',
+            borderRadius: '8px',
             border: '1px solid #e9ecef'
           }}>
             <h3 style={{ 
               color: '#5c2abd', 
-              margin: '0 0 15px 0', 
-              fontSize: '16px',
+              margin: '0 0 12px 0', 
+              fontSize: '14px',
               display: 'flex',
               alignItems: 'center',
-              gap: '8px'
+              gap: '6px'
             }}>
-              <span style={{ background: '#5c2abd', width: '8px', height: '8px', borderRadius: '50%', display: 'inline-block' }}></span>
+              <span style={{ background: '#5c2abd', width: '6px', height: '6px', borderRadius: '50%', display: 'inline-block' }}></span>
               Détails de l'événement
             </h3>
-            <table style={{ width: '100%' }}>
+            <table style={{ width: '100%', fontSize: '11px' }}>
               <tbody>
                 <tr style={{ borderBottom: '1px solid #e9ecef' }}>
-                  <td style={{ padding: '8px 0', fontWeight: 'bold', width: '35%' }}>Type d'événement :</td>
-                  <td style={{ padding: '8px 0' }}>{reservationData.typeEvenement}</td>
+                  <td style={{ padding: '6px 0', fontWeight: 'bold', width: '35%' }}>Type d'événement :</td>
+                  <td style={{ padding: '6px 0' }}>{reservationData.typeEvenement}</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #e9ecef' }}>
-                  <td style={{ padding: '8px 0', fontWeight: 'bold' }}>Date de début :</td>
-                  <td style={{ padding: '8px 0' }}>{formatDate(reservationData.dateDebut)}</td>
+                  <td style={{ padding: '6px 0', fontWeight: 'bold' }}>Date de début :</td>
+                  <td style={{ padding: '6px 0' }}>{formatDate(reservationData.dateDebut)}</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #e9ecef' }}>
-                  <td style={{ padding: '8px 0', fontWeight: 'bold' }}>Date de fin :</td>
-                  <td style={{ padding: '8px 0' }}>{formatDate(reservationData.dateFin)}</td>
+                  <td style={{ padding: '6px 0', fontWeight: 'bold' }}>Date de fin :</td>
+                  <td style={{ padding: '6px 0' }}>{formatDate(reservationData.dateFin)}</td>
                 </tr>
                 {reservationData.nombreInvites && (
                   <tr style={{ borderBottom: '1px solid #e9ecef' }}>
-                    <td style={{ padding: '8px 0', fontWeight: 'bold' }}>Nombre d'invités :</td>
-                    <td style={{ padding: '8px 0' }}>{reservationData.nombreInvites} personnes</td>
+                    <td style={{ padding: '6px 0', fontWeight: 'bold' }}>Nombre d'invités :</td>
+                    <td style={{ padding: '6px 0' }}>{reservationData.nombreInvites} personnes</td>
                   </tr>
                 )}
                 {reservationData.message && (
                   <tr>
-                    <td style={{ padding: '8px 0', fontWeight: 'bold' }}>Demandes spéciales :</td>
-                    <td style={{ padding: '8px 0' }}>{reservationData.message}</td>
+                    <td style={{ padding: '6px 0', fontWeight: 'bold' }}>Demandes spéciales :</td>
+                    <td style={{ padding: '6px 0' }}>{reservationData.message}</td>
                   </tr>
                 )}
               </tbody>
@@ -194,43 +208,43 @@ const ReservationPDF = ({ reservationData, onDownloadComplete }) => {
 
           {/* Statut */}
           <div style={{ 
-            marginBottom: '20px', 
-            padding: '15px', 
+            marginBottom: '18px', 
+            padding: '12px', 
             background: '#e8f5e9', 
-            borderRadius: '10px', 
+            borderRadius: '8px', 
             textAlign: 'center',
             border: '1px solid #c8e6c9'
           }}>
-            <p style={{ color: '#2e7d32', fontWeight: 'bold', margin: 0, fontSize: '14px' }}>
+            <p style={{ color: '#2e7d32', fontWeight: 'bold', margin: 0, fontSize: '12px' }}>
               ✓ Réservation en attente de confirmation
             </p>
-            <p style={{ fontSize: '11px', color: '#666', margin: '8px 0 0 0' }}>
-              Notre équipe vous contactera sous 24h pour confirmer votre réservation
+            <p style={{ fontSize: '10px', color: '#666', margin: '6px 0 0 0' }}>
+              Notre équipe vous contactera sous 24h
             </p>
           </div>
 
           {/* Informations de paiement */}
           <div style={{ 
-            marginBottom: '20px', 
-            padding: '15px', 
+            marginBottom: '18px', 
+            padding: '12px', 
             background: '#fff8e7', 
-            borderRadius: '10px',
+            borderRadius: '8px',
             border: '1px solid #ffe0b2'
           }}>
-            <h3 style={{ color: '#5c2abd', margin: '0 0 12px 0', fontSize: '14px' }}>💳 Informations de paiement</h3>
-            <table style={{ width: '100%', fontSize: '11px' }}>
+            <h3 style={{ color: '#5c2abd', margin: '0 0 10px 0', fontSize: '12px' }}>💳 Paiement</h3>
+            <table style={{ width: '100%', fontSize: '10px' }}>
               <tbody>
                 <tr>
-                  <td style={{ padding: '5px 0', width: '35%' }}><strong>Arrhes (30%) :</strong></td>
+                  <td style={{ padding: '4px 0', width: '35%' }}><strong>Arrhes (30%) :</strong></td>
                   <td>À verser à la confirmation</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '5px 0' }}><strong>Solde :</strong></td>
+                  <td style={{ padding: '4px 0' }}><strong>Solde :</strong></td>
                   <td>7 jours avant l'événement</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '5px 0' }}><strong>Moyens acceptés :</strong></td>
-                  <td>Virement bancaire, Mobile Money, Carte bancaire</td>
+                  <td style={{ padding: '4px 0' }}><strong>Moyens :</strong></td>
+                  <td>Virement, Mobile Money, Carte</td>
                 </tr>
               </tbody>
             </table>
@@ -238,17 +252,16 @@ const ReservationPDF = ({ reservationData, onDownloadComplete }) => {
 
           {/* Pied de page */}
           <div style={{ 
-            marginTop: '30px', 
+            marginTop: '25px', 
             textAlign: 'center', 
-            fontSize: '10px', 
+            fontSize: '9px', 
             color: '#999', 
             borderTop: '1px solid #e0e0e0', 
-            paddingTop: '15px' 
+            paddingTop: '12px' 
           }}>
-            <p style={{ margin: '0' }}>Venice Hall - Salles de fête</p>
-            <p style={{ margin: '5px 0' }}>Texaco Omnisport, Yaoundé, Cameroun | Tél: +237 693 830 605</p>
-            <p style={{ margin: '5px 0' }}>Email: contact@venicehall.com | www.venicehall.com</p>
-            <p style={{ margin: '10px 0 0 0', fontWeight: 'bold' }}>Ce document est une preuve de réservation. Merci de le conserver.</p>
+            <p style={{ margin: '0' }}>Venice Hall - Texaco Omnisport, Yaoundé</p>
+            <p style={{ margin: '4px 0 0 0' }}>Tél: +237 693 830 605 | Email: contact@venicehall.com</p>
+            <p style={{ margin: '8px 0 0 0', fontWeight: 'bold' }}>Ce document est une preuve de réservation</p>
           </div>
         </div>
       </div>

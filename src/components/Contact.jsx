@@ -189,10 +189,10 @@ const Contact = () => {
               <div className="contact-social">
                 <h4>Suivez-nous</h4>
                 <div className="social-links">
-                  <a href="/" className="social-link" aria-label="Facebook">
+                  <a href="https://www.facebook.com/share/1JzxV1fNWh/" className="social-link" aria-label="Facebook">
                     <i className="fab fa-facebook-f" style={{color:"#5c2abd"}}></i>
                   </a>
-                  <a href="/" className="social-link" aria-label="Instagram">
+                  <a href="https://www.instagram.com/venicehallc?igsh=MW1pNmZ6ZjRnNHg3dg==" className="social-link" aria-label="Instagram">
                     <i className="fab fa-instagram" style={{color:"#5c2abd"}}></i>
                   </a>
                   <a href="/" className="social-link" aria-label="Tiktok">

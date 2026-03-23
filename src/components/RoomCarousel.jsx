@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';  // ← AJOUTER CET IMPORT
 import '../styles/RoomCarousel.css';
 
 const RoomCarousel = () => {
+  const navigate = useNavigate();  // ← AJOUTER CETTE LIGNE
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+
+  // Fonction pour naviguer vers la page de réservation
+  const goToReservation = () => {
+    navigate('/reservation');
+  };
 
   const rooms = [
     {
@@ -143,7 +150,13 @@ const RoomCarousel = () => {
                     <i className="fas fa-franc-sign"></i> {room.price}
                   </span>
                 </div>
-                <button className="room-btn">Réserver</button>
+                {/* BOUTON RÉSERVER MODIFIÉ */}
+                <button 
+                  className="room-btn"
+                  onClick={goToReservation}
+                >
+                  Réserver
+                </button>
               </div>
             </div>
           ))}
