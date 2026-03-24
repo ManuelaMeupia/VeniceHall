@@ -96,7 +96,7 @@ const Footer = () => {
               <a href="/" className="social-link" aria-label="Tiktok">
                 <i className="fab fa-tiktok"></i>
               </a>
-              <a href="/" className="social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/venice-hall25/" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -155,15 +155,15 @@ const Footer = () => {
                 <i className="fas fa-envelope"  style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Email</span>
-                  <span>contact@venicehall.com</span>
+                  <span>venicehallcm@gmail.com</span>
                 </div>
               </li>
               <li>
                 <i className="fas fa-clock" style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Horaires</span>
-                  <span>Lun-Ven: 8h - 17h</span>
-                  <span>Sam: 8h - 14h</span>
+                  <span>7 jours / 7</span>
+                  <span>24h / 24</span>
                 </div>
               </li>
             </ul>

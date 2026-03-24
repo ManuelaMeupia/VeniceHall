@@ -6,8 +6,10 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import RoomCarousel from './components/RoomCarousel';
+import WhyChooseUs from './components/WhyChooseUs';
 import Reservation from './components/Reservation';
 import WhatsAppButton from './components/WhatsAppButton' ;
+import Testimonials from './components/Testimonials';
 import './App.css';
 
 function App() {
@@ -35,7 +37,9 @@ function App() {
               <section id="salles" className="section-salles">
                 <RoomCarousel />
               </section>
+              <WhyChooseUs />
               <About />
+              <Testimonials/>
               <Contact />
             </>
           } />

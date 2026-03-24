@@ -431,10 +431,6 @@
     margin-top: 3rem;
   }
 
-  .contact-detail {
-  text-align: left;
-  }
-
   .footer-container {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -466,6 +462,34 @@
 
   .social-links {
     justify-content: center;
+  }
+
+  .contact-info li {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 12px;
+  }
+  
+  .contact-info li i {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  
+  .contact-detail {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .contact-detail span {
+    display: block;
+    text-align: left;
+  }
+  
+  .contact-label {
+    font-weight: 600;
+    margin-bottom: 2px;
   }
 }
 

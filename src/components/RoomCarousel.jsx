@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';  // ← AJOUTER CET IMPORT
+import { useNavigate } from 'react-router-dom';
+import ImageModal from './ImageModal';
 import '../styles/RoomCarousel.css';
 
 const RoomCarousel = () => {
-  const navigate = useNavigate();  // ← AJOUTER CETTE LIGNE
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-
-  // Fonction pour naviguer vers la page de réservation
-  const goToReservation = () => {
-    navigate('/reservation');
-  };
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalIndex, setModalIndex] = useState(0);
 
   const rooms = [
     {
@@ -65,16 +63,39 @@ const RoomCarousel = () => {
     }
   ];
 
+  // Ouvrir le modal avec l'image cliquée
+  const openModal = (index) => {
+    setModalIndex(index);
+    setModalOpen(true);
+    setIsAutoPlaying(false);
+  };
+
+  // Fermer le modal
+  const closeModal = () => {
+    setModalOpen(false);
+    setIsAutoPlaying(true);
+  };
+
+  // Image suivante dans le modal
+  const nextImage = () => {
+    setModalIndex((prev) => (prev + 1) % rooms.length);
+  };
+
+  // Image précédente dans le modal
+  const prevImage = () => {
+    setModalIndex((prev) => (prev - 1 + rooms.length) % rooms.length);
+  };
+
   // Auto-play du carousel
   useEffect(() => {
     let interval;
-    if (isAutoPlaying) {
+    if (isAutoPlaying && !modalOpen) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % rooms.length);
       }, 5000);
     }
     return () => clearInterval(interval);
-  }, [isAutoPlaying, rooms.length]);
+  }, [isAutoPlaying, rooms.length, modalOpen]);
 
   // Navigation
   const goToPrevious = () => {
@@ -114,14 +135,19 @@ const RoomCarousel = () => {
     }
   };
 
+  // Fonction pour naviguer vers la page de réservation
+  const goToReservation = () => {
+    navigate('/reservation');
+  };
+
   return (
     <div className="carousel-container">
       <h2 className="carousel-title">Nos Salles</h2>
       
       <div 
         className="carousel-wrapper"
-        onMouseEnter={() => setIsAutoPlaying(false)}
-        onMouseLeave={() => setIsAutoPlaying(true)}
+        onMouseEnter={() => !modalOpen && setIsAutoPlaying(false)}
+        onMouseLeave={() => !modalOpen && setIsAutoPlaying(true)}
       >
         {/* Images principales */}
         <div 
@@ -138,7 +164,14 @@ const RoomCarousel = () => {
                 transform: `translateX(${(index - currentIndex) * 100}%)`
               }}
             >
-              <img src={room.image} alt={room.name} />
+              {/* Image cliquable pour zoom */}
+              <img 
+                src={room.image} 
+                alt={room.name} 
+                onClick={() => openModal(index)}
+                className="carousel-image"
+                style={{ cursor: 'pointer' }}
+              />
               <div className="carousel-overlay">
                 <h3>{room.name}</h3>
                 <p className="room-description">{room.description}</p>
@@ -150,7 +183,6 @@ const RoomCarousel = () => {
                     <i className="fas fa-franc-sign"></i> {room.price}
                   </span>
                 </div>
-                {/* BOUTON RÉSERVER MODIFIÉ */}
                 <button 
                   className="room-btn"
                   onClick={goToReservation}
@@ -196,11 +228,30 @@ const RoomCarousel = () => {
             className={`thumbnail ${index === currentIndex ? 'active' : ''}`}
             onClick={() => goToSlide(index)}
           >
-            <img src={room.image} alt={room.name} />
+            <img 
+              src={room.image} 
+              alt={room.name}
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal(index);
+              }}
+              style={{ cursor: 'pointer' }}
+            />
             <span className="thumbnail-name">{room.name}</span>
           </div>
         ))}
       </div>
+
+      {/* Modal d'agrandissement */}
+      {modalOpen && (
+        <ImageModal
+          images={rooms}
+          currentIndex={modalIndex}
+          onClose={closeModal}
+          onNext={nextImage}
+          onPrev={prevImage}
+        />
+      )}
     </div>
   );
 };

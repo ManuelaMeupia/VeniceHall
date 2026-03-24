@@ -203,7 +203,7 @@ const Contact = () => {
                   </div>
                   <div className="info-details">
                     <h4>Email</h4>
-                    <p>contact@venicehall.com</p>
+                    <p>venicehallcm@gmail.com</p>
                   </div>
                 </div>
 
@@ -213,8 +213,8 @@ const Contact = () => {
                   </div>
                   <div className="info-details">
                     <h4>Horaires</h4>
-                    <p>Lun - Sam : 9h00 - 20h00</p>
-                    <p>Dim : Sur rendez-vous</p>
+                    <p>7 jours / 7 </p>
+                    <p>24h / 24</p>
                   </div>
                 </div>
               </div>
@@ -232,7 +232,7 @@ const Contact = () => {
                   <a href="/" className="social-link" aria-label="Tiktok">
                     <i className="fab fa-tiktok" style={{color:"#5c2abd"}}></i>
                   </a>
-                  <a href="/" className="social-link" aria-label="LinkedIn">
+                  <a href="https://www.linkedin.com/company/venice-hall25/" className="social-link" aria-label="LinkedIn">
                     <i className="fab fa-linkedin-in" style={{color:"#5c2abd"}}></i>
                   </a>
                 </div>
@@ -312,7 +312,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={errors.phone ? 'error' : ''}
-                    placeholder="+237 620 207 726"
+                    // placeholder="+237 620 207 726"
                   />
                   {errors.phone && <span className="error-message">{errors.phone}</span>}
                 </div>

@@ -1,0 +1,128 @@
+.why-choose-us {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba(92, 42, 189, 0.1);
+  color: #5c2abd;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 60px;
+}
+
+.reason-card {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(92, 42, 189, 0.1);
+}
+
+.reason-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.reason-card h3 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.reason-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.stats-premium {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 3rem;
+  background: #5c2abd;
+  border-radius: 20px;
+  color: white;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 992px) {
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-premium {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.reason-icon {
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5c2abd;
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover .reason-icon {
+  transform: scale(1.1);
+  color: #8b5cf6;
+}

@@ -21,9 +21,34 @@ const About = () => {
         <div className="about-header">
           <span className="about-badge">Qui sommes-nous ?</span>
           <h2 className="about-title">À Propos de <span className="text-gradient">Venice Hall</span></h2>
-          <p className="about-subtitle">
-            Nous créons des espaces uniques pour des moments inoubliables.
-          </p>
+          
+          <div className="about-subtitle-container">
+            <p className="about-subtitle">
+              Venice Hall est une salle de réception moderne et élégante, pensée pour accueillir vos événements les plus prestigieux.
+              Après un rebranding complet, nous offrons aujourd'hui un espace :
+            </p>
+            
+            <div className="about-features-list">
+              <div className="feature-point">
+                <i className="fas fa-check-circle"></i>
+                <span>Raffiné</span>
+              </div>
+              <div className="feature-point">
+                <i className="fas fa-check-circle"></i>
+                <span>Modulable</span>
+              </div>
+              <div className="feature-point">
+                <i className="fas fa-check-circle"></i>
+                <span>Adapté aux exigences haut de gamme</span>
+              </div>
+            </div>
+            
+            <div className="about-mission">
+              <i className="fas fa-star"></i>
+              <p>Notre mission : faire de chaque événement une expérience unique</p>
+              <i className="fas fa-star"></i>
+            </div>
+          </div>
         </div>
 
         {/* Contenu principal */}
@@ -36,18 +61,6 @@ const About = () => {
                 alt="Notre équipe" 
                 className="about-image"
               />
-              {/* <div className="about-image-overlay">
-                <div className="about-image-stats">
-                  <div className="image-stat">
-                    <span className="image-stat-number">10+</span>
-                    <span className="image-stat-label">Années d'expertise</span>
-                  </div>
-                  <div className="image-stat">
-                    <span className="image-stat-number">500+</span>
-                    <span className="image-stat-label">Événements réussis</span>
-                  </div>
-                </div>
-              </div> */}
             </div>
             
             {/* Miniatures d'images */}
@@ -110,36 +123,109 @@ const About = () => {
               </div>
             </div>
 
-            {/* Statistiques supplémentaires */}
-            {/* <div className="about-stats-grid">
-              <div className="about-stat-card">
-                <i className="fas fa-building stat-card-icon"></i>
-                <span className="stat-card-number">50+</span>
-                <span className="stat-card-label">Salles de prestige</span>
-              </div>
-              <div className="about-stat-card">
-                <i className="fas fa-users stat-card-icon"></i>
-                <span className="stat-card-number">20+</span>
-                <span className="stat-card-label">Experts à votre service</span>
-              </div>
-              <div className="about-stat-card">
-                <i className="fas fa-map-marker-alt stat-card-icon"></i>
-                <span className="stat-card-number">5</span>
-                <span className="stat-card-label">Villes couvertes</span>
-              </div>
-              <div className="about-stat-card">
-                <i className="fas fa-smile stat-card-icon"></i>
-                <span className="stat-card-number">100%</span>
-                <span className="stat-card-label">Satisfaction client</span>
-              </div>
-            </div> */}
-
             {/* Bouton de contact */}
-            <button className="about-contact-btn"  onClick={scrollToContact} >
+            <button className="about-contact-btn" onClick={scrollToContact}>
               <i className="fas fa-envelope"></i>
               Contactez notre équipe
             </button>
           </div>
+        </div>
+
+        {/* Section Prestations */}
+        <div className="about-prestations">
+          <h3 className="section-title-purple">NOS PRESTATIONS</h3>
+          <div className="prestations-grid">
+            <div className="prestation-card">
+              <i className="fas fa-ring"></i>
+              <h4>Mariages</h4>
+              <p>Un cadre chic pour célébrer le plus beau jour de votre vie</p>
+            </div>
+            <div className="prestation-card">
+              <i className="fas fa-birthday-cake"></i>
+              <h4>Anniversaires & événements privés</h4>
+              <p>Ambiance élégante et personnalisée</p>
+            </div>
+            <div className="prestation-card">
+              <i className="fas fa-briefcase"></i>
+              <h4>Séminaires & événements professionnels</h4>
+              <p>Un espace adapté pour vos rencontres corporate</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Salle */}
+        <div className="about-salle">
+          <h3 className="section-title-purple"> LA SALLE</h3>
+          <div className="salle-features">
+            <div className="salle-feature">
+              <i className="fas fa-users"></i>
+              <div>
+                <strong>Capacité :</strong> 400 et 300 places assises
+              </div>
+            </div>
+            <div className="salle-feature">
+              <i className="fas fa-wind"></i>
+              <div>
+                <strong>Espace climatisé</strong>
+              </div>
+            </div>
+            <div className="salle-feature">
+              <i className="fas fa-parking"></i>
+              <div>
+                <strong>Parking disponible</strong>
+              </div>
+            </div>
+            <div className="salle-feature">
+              <i className="fas fa-palette"></i>
+              <div>
+                <strong>Décoration moderne</strong>
+              </div>
+            </div>
+            <div className="salle-feature">
+              <i className="fas fa-music"></i>
+              <div>
+                <strong>Sonorisation et buffet inclus</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Galerie */}
+        <div className="about-galerie">
+          <h3 className="section-title-purple"> GALERIE</h3>
+          <p className="galerie-note"> (Photos réelles)</p>
+          <div className="galerie-grid">
+            <img src="/img/img1.jpg" alt="Salle 1" />
+            <img src="/img/img2.jpg" alt="Salle 2" />
+            <img src="/img/img3.jpg" alt="Salle 3" />
+            <img src="/img/img4.jpg" alt="Salle 4" />
+          </div>
+        </div>
+
+        {/* Section Formules */}
+        <div className="about-formules">
+          <h3 className="section-title-purple"> NOS FORMULES</h3>
+          <div className="formules-grid">
+            <div className="formule-card standard">
+              <div className="formule-icon">💎</div>
+              <h4>Formule Standard</h4>
+              <p>Location simple de la salle</p>
+            </div>
+            <div className="formule-card confort">
+              <div className="formule-icon">💎💎</div>
+              <h4>Formule Confort</h4>
+              <p>Salle + décoration de base</p>
+            </div>
+            <div className="formule-card premium">
+              <div className="formule-icon">💎💎💎</div>
+              <h4>Formule Premium</h4>
+              <p>Salle + décoration + accompagnement événementiel</p>
+            </div>
+          </div>
+          <p className="tarif-note"> Tarifs sur demande</p>
+          <button className="btn-demande-devis" onClick={scrollToContact}>
+            Demander un devis
+          </button>
         </div>
       </div>
     </section>
