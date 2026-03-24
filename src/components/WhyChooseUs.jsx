@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaBuilding, FaCrown, FaGem, FaMapMarkerAlt } from 'react-icons/fa';
-import { GiPalace, GiSparkles } from 'react-icons/gi';
-import { MdLocationOn, MdEmojiEvents } from 'react-icons/md';
+import { FaBuilding, FaCrown} from 'react-icons/fa';
+import { GiSparkles } from 'react-icons/gi';
+import { MdLocationOn } from 'react-icons/md';
 import '../styles/WhyChooseUs.css';
 
 const WhyChooseUs = () => {
