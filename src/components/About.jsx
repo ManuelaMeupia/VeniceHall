@@ -141,46 +141,6 @@ const About = () => {
             </button>
           </div>
         </div>
-
-        {/* Section Équipe */}
-        <div className="about-team">
-          <h3 className="team-title">Notre Équipe</h3>
-          <div className="team-grid">
-            <div className="team-member">
-              <div className="member-image">
-                <img src="/img/Logo.jpeg" alt="Jean Dupont" />
-              </div>
-              <h4>Personnel 1</h4>
-              <p>Fondateur & Directeur</p>
-              {/* <div className="member-social">
-                <a href="/"><i className="fab fa-linkedin-in"></i></a>
-                <a href="/"><i className="fab fa-twitter"></i></a>
-              </div> */}
-            </div>
-            <div className="team-member">
-              <div className="member-image">
-                <img src="/img/Logo.jpeg" alt="Marie Martin" />
-              </div>
-              <h4>Personnel 2</h4>
-              <p>Directrice des Événements</p>
-              {/* <div className="member-social">
-                <a href="/"><i className="fab fa-linkedin-in"></i></a>
-                <a href="/"><i className="fab fa-twitter"></i></a>
-              </div> */}
-            </div>
-            <div className="team-member">
-              <div className="member-image">
-                <img src="/img/Logo.jpeg" alt="Pierre Durand" />
-              </div>
-              <h4>Personnel 3</h4>
-              <p>Responsable Commercial</p>
-              {/* <div className="member-social">
-                <a href="/"><i className="fab fa-linkedin-in"></i></a>
-                <a href="/"><i className="fab fa-twitter"></i></a>
-              </div> */}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
