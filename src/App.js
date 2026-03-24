@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import RoomCarousel from './components/RoomCarousel';
 import Reservation from './components/Reservation';
+import WhatsAppButton from './components/WhatsAppButton' ;
 import './App.css';
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
         </Routes>
 
         <Footer />
+        
+        {/* Bouton WhatsApp - s'affiche sur toutes les pages */}
+        <WhatsAppButton />
       </div>
     </Router>
   );

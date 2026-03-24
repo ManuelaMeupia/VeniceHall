@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Footer.css';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const currentYear = new Date().getFullYear();
+
+  // Numéro WhatsApp (remplacez par le vôtre)
+  const whatsappNumber = "237620207726";
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -14,6 +21,46 @@ const Footer = () => {
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    
+    // Validation de l'email
+    if (!email) {
+      setStatus({ type: 'error', message: 'Veuillez entrer votre email' });
+      setTimeout(() => setStatus({ type: '', message: '' }), 3000);
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setStatus({ type: 'error', message: 'Email invalide' });
+      setTimeout(() => setStatus({ type: '', message: '' }), 3000);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Construction du message WhatsApp
+    const message = `*NOUVELLE INSCRIPTION NEWSLETTER*%0A%0A` +
+      `*Venice Hall*%0A%0A` +
+      `*Email:* ${email}%0A` +
+      `*Date:* ${new Date().toLocaleString('fr-FR')}%0A` +
+      `*Source:* Newsletter Venice Hall %0A%0A` +
+      `---%0A` +
+      `Merci de contacter cette personne pour les offres spéciales.`;
+
+    // Création du lien WhatsApp
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+    
+    // Ouvrir WhatsApp dans un nouvel onglet
+    window.open(whatsappUrl, '_blank');
+    
+    setStatus({ type: 'success', message: '✅ Inscription envoyée ! Vous recevrez nos offres.' });
+    setEmail('');
+    setIsSubmitting(false);
+    
+    setTimeout(() => setStatus({ type: '', message: '' }), 4000);
   };
 
   return (
@@ -40,10 +87,10 @@ const Footer = () => {
             
             {/* Social Media Links */}
             <div className="social-links">
-              <a href="https://www.facebook.com/share/1JzxV1fNWh/" className="social-link" aria-label="Facebook">
+              <a href="https://www.facebook.com/share/1JzxV1fNWh/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="https://www.instagram.com/venicehallc?igsh=MW1pNmZ6ZjRnNHg3dg==" className="social-link" aria-label="Instagram">
+              <a href="https://www.instagram.com/venicehallc?igsh=MW1pNmZ6ZjRnNHg3dg==" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <i className="fab fa-instagram"></i>
               </a>
               <a href="/" className="social-link" aria-label="Tiktok">
@@ -52,9 +99,6 @@ const Footer = () => {
               <a href="/" className="social-link" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              {/* <a href="/" className="social-link" aria-label="YouTube">
-                <i className="fab fa-youtube"></i>
-              </a> */}
             </div>
           </div>
 
@@ -104,7 +148,7 @@ const Footer = () => {
                 <i className="fas fa-phone-alt"  style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Téléphone</span>
-                  <span>+237 6</span>
+                  <span>+237 620 207 726</span>
                 </div>
               </li>
               <li>
@@ -125,34 +169,46 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Section 4 - Newsletter */}
+          {/* Section 4 - Newsletter avec WhatsApp */}
           <div className="footer-section">
             <h3 className="footer-title">Newsletter</h3>
             <p className="newsletter-text">
               Inscrivez-vous pour recevoir nos offres spéciales et actualités
             </p>
-            <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+            
+            {/* Message de statut */}
+            {status.message && (
+              <div className={`newsletter-status ${status.type}`}>
+                {status.message}
+              </div>
+            )}
+            
+            <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
               <div className="form-group">
                 <input 
                   type="email" 
                   placeholder="Votre adresse email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={isSubmitting}
                 />
-                <button type="submit" aria-label="S'inscrire">
-                  <i className="fas fa-paper-plane"></i>
+                <button 
+                  type="submit" 
+                  aria-label="S'inscrire"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <span className="spinner-small"></span>
+                  ) : (
+                    <i className="fab fa-whatsapp"></i>
+                  )}
                 </button>
               </div>
             </form>
-
-            {/* <div className="payment-methods">
-              <span className="payment-title">Paiement sécurisé</span>
-              <div className="payment-icons">
-                <i className="fab fa-cc-visa" title="Visa"></i>
-                <i className="fab fa-cc-mastercard" title="Mastercard"></i>
-                <i className="fab fa-cc-paypal" title="PayPal"></i>
-                <i className="fab fa-cc-amex" title="American Express"></i>
-              </div>
-            </div> */}
+            <p className="newsletter-note">
+              <i className="fab fa-whatsapp"></i> Vous serez contacté sur WhatsApp
+            </p>
           </div>
         </div>
 
@@ -174,10 +230,6 @@ const Footer = () => {
                 <i className="fas fa-lock"></i>
                 Politique de confidentialité
               </a>
-              {/* <a href="/" className="bottom-link">
-                <i className="fas fa-file-contract"></i>
-                CGV
-              </a> */}
               <a href="/" className="bottom-link">
                 <i className="fas fa-cookie-bite"></i>
                 Cookies

@@ -19,6 +19,10 @@ const Contact = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Numéro WhatsApp (remplacez par le vôtre)
+  const whatsappNumber = "237620207726";
 
   const eventTypes = [
     'Mariage',
@@ -36,7 +40,6 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
-    // Effacer l'erreur du champ quand l'utilisateur commence à taper
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -92,11 +95,42 @@ const Contact = () => {
       return;
     }
 
-    // Simulation d'envoi du formulaire
+    setIsSubmitting(true);
+
+    // Formatage de la date
+    const formatDate = (dateString) => {
+      if (!dateString) return 'Non spécifiée';
+      const date = new Date(dateString);
+      return date.toLocaleDateString('fr-FR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+    };
+
+    // Construction du message pour WhatsApp
+    const message = `*NOUVEAU MESSAGE - VENICE HALL*%0A%0A` +
+      `*Nom:* ${formData.name}%0A` +
+      `*Email:* ${formData.email}%0A` +
+      `*Téléphone:* ${formData.phone}%0A` +
+      `*Type d'événement:* ${formData.eventType}%0A` +
+      `*Date souhaitée:* ${formatDate(formData.date)}%0A` +
+      `*Nombre d'invités:* ${formData.guests}%0A%0A` +
+      `*Message:*%0A${formData.message}%0A%0A` +
+      `---%0A` +
+      `*Envoyé le:* ${new Date().toLocaleString('fr-FR')}`;
+
+    // Création du lien WhatsApp
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    // Ouvrir WhatsApp dans un nouvel onglet
+    window.open(whatsappUrl, '_blank');
+
+    // Afficher le message de succès
     setFormStatus({
       submitted: true,
       success: true,
-      message: 'Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.'
+      message: '✓ Votre message a été préparé ! WhatsApp va s\'ouvrir pour finaliser l\'envoi.'
     });
 
     // Réinitialiser le formulaire après 3 secondes
@@ -115,9 +149,9 @@ const Contact = () => {
         success: false,
         message: ''
       });
+      setIsSubmitting(false);
     }, 3000);
 
-    // Ici, vous pouvez ajouter votre logique d'envoi vers un backend
     console.log('Données du formulaire:', formData);
   };
 
@@ -145,7 +179,7 @@ const Contact = () => {
               <div className="info-items">
                 <div className="info-item">
                   <div className="info-icon">
-                    <i class="fas fa-map-marker-alt" style={{color:"#5c2abd"}}></i>
+                    <i className="fas fa-map-marker-alt" style={{color:"#5c2abd"}}></i>
                   </div>
                   <div className="info-details">
                     <h4>Adresse</h4>
@@ -159,7 +193,7 @@ const Contact = () => {
                   </div>
                   <div className="info-details">
                     <h4>Téléphone</h4>
-                    <p>+237 6</p>
+                    <p>+237 620 207 726</p>
                   </div>
                 </div>
 
@@ -189,10 +223,10 @@ const Contact = () => {
               <div className="contact-social">
                 <h4>Suivez-nous</h4>
                 <div className="social-links">
-                  <a href="https://www.facebook.com/share/1JzxV1fNWh/" className="social-link" aria-label="Facebook">
+                  <a href="https://www.facebook.com/share/1JzxV1fNWh/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
                     <i className="fab fa-facebook-f" style={{color:"#5c2abd"}}></i>
                   </a>
-                  <a href="https://www.instagram.com/venicehallc?igsh=MW1pNmZ6ZjRnNHg3dg==" className="social-link" aria-label="Instagram">
+                  <a href="https://www.instagram.com/venicehallc?igsh=MW1pNmZ6ZjRnNHg3dg==" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                     <i className="fab fa-instagram" style={{color:"#5c2abd"}}></i>
                   </a>
                   <a href="/" className="social-link" aria-label="Tiktok">
@@ -223,6 +257,9 @@ const Contact = () => {
               <div className={`form-status ${formStatus.success ? 'success' : 'error'}`}>
                 <i className={`fas ${formStatus.success ? 'fa-check-circle' : 'fa-exclamation-circle'}`}></i>
                 <p>{formStatus.message}</p>
+                <p className="whatsapp-hint">
+                  <i className="fab fa-whatsapp"></i> WhatsApp va s'ouvrir, cliquez sur "Envoyer" pour finaliser.
+                </p>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -275,7 +312,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={errors.phone ? 'error' : ''}
-                    placeholder="+237..."
+                    placeholder="+237 620 207 726"
                   />
                   {errors.phone && <span className="error-message">{errors.phone}</span>}
                 </div>
@@ -354,15 +391,28 @@ const Contact = () => {
                 </div>
 
                 {/* Bouton d'envoi */}
-                <button type="submit" className="submit-btn">
-                  <i className="fas fa-paper-plane"></i>
-                  Envoyer le message
+                <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <span className="spinner"></span>
+                      Préparation...
+                    </>
+                  ) : (
+                    <>
+                      <i className="fab fa-whatsapp"></i>
+                      Envoyer sur WhatsApp
+                    </>
+                  )}
                 </button>
 
                 {/* Mention légale */}
                 <p className="form-mention">
-                  <i className="fas fa-lock"></i>
+                  <i className="fas fa-lock" style={{color:"#5c2abd"}}></i>
                   Vos données sont confidentielles et ne seront jamais partagées.
+                </p>
+                <p className="form-mention whatsapp-note">
+                  <i className="fab fa-whatsapp" style={{color:"#5c2abd"}} ></i>
+                  Un message pré-rempli s'ouvrira dans WhatsApp.
                 </p>
               </form>
             )}

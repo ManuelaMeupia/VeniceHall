@@ -227,7 +227,7 @@ const Reservation = () => {
                   value={formData.nom}
                   onChange={handleChange}
                   className={errors.nom ? 'error' : ''}
-                  placeholder="Jean Dupont"
+                  placeholder="Ela Manu"
                 />
                 {errors.nom && <span className="error-message">{errors.nom}</span>}
               </div>
@@ -245,7 +245,7 @@ const Reservation = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? 'error' : ''}
-                  placeholder="jean.dupont@email.com"
+                  placeholder="manuela237@email.com"
                 />
                 {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
@@ -263,7 +263,7 @@ const Reservation = () => {
                   value={formData.telephone}
                   onChange={handleChange}
                   className={errors.telephone ? 'error' : ''}
-                  placeholder="+225 07 12 34 56 78"
+                  placeholder=""
                 />
                 {errors.telephone && <span className="error-message">{errors.telephone}</span>}
               </div>
