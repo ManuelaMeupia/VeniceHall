@@ -12,7 +12,7 @@ import {
   FaInfoCircle,
   FaGift,
   FaStar,
-  FaCalendarAlt,
+  // FaCalendarAlt,
   // FaBell,
   // FaUserCircle 
 } from "react-icons/fa";
