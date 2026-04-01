@@ -10,6 +10,9 @@ import {
 import { 
   FaImages, 
   FaInfoCircle,
+  FaGift,
+  FaStar,
+  FaCalendarAlt,
   // FaBell,
   // FaUserCircle 
 } from "react-icons/fa";
@@ -131,7 +134,6 @@ const Navbar = () => {
             </span>
             <div className="logo-text-wrapper">
               <span className="logo-text-primary">Venice Hall</span>
-              {/* <span className="logo-text-secondary">Hall</span> */}
             </div>
           </div>
         </div>
@@ -150,6 +152,7 @@ const Navbar = () => {
 
         {/* Menu de navigation */}
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} ref={menuRef}>
+          {/* Accueil */}
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('accueil')}
@@ -163,6 +166,7 @@ const Navbar = () => {
             </button>
           </li>
 
+          {/* Nos espaces/Nos Salles */}
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('salles')}
@@ -171,11 +175,40 @@ const Navbar = () => {
               <span className="nav-icon">
                 <FaImages />
               </span>
-              <span className="nav-text">Nos Salles</span>
+              <span className="nav-text">Salles</span>
               {activeLink === 'salles' && <span className="nav-dot"></span>}
             </button>
           </li>
 
+          {/* Nos offres */}
+          <li className="nav-item">
+            <button
+              onClick={() => scrollToSection('offres')}
+              className={`nav-link ${activeLink === 'offres' ? 'active' : ''}`}
+            >
+              <span className="nav-icon">
+                <FaGift />
+              </span>
+              <span className="nav-text">Offres</span>
+              {activeLink === 'offres' && <span className="nav-dot"></span>}
+            </button>
+          </li>
+
+          {/* Événements */}
+          {/* <li className="nav-item">
+            <button
+              onClick={() => scrollToSection('evenements')}
+              className={`nav-link ${activeLink === 'evenements' ? 'active' : ''}`}
+            >
+              <span className="nav-icon">
+                <FaCalendarAlt />
+              </span>
+              <span className="nav-text">Événements</span>
+              {activeLink === 'evenements' && <span className="nav-dot"></span>}
+            </button>
+          </li> */}
+          
+          {/* À propos */}
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('a-propos')}
@@ -189,6 +222,21 @@ const Navbar = () => {
             </button>
           </li>
 
+          {/* Témoignages */}
+          <li className="nav-item">
+            <button
+              onClick={() => scrollToSection('temoignages')}
+              className={`nav-link ${activeLink === 'temoignages' ? 'active' : ''}`}
+            >
+              <span className="nav-icon">
+                <FaStar />
+              </span>
+              <span className="nav-text">Témoignages</span>
+              {activeLink === 'temoignages' && <span className="nav-dot"></span>}
+            </button>
+          </li>
+
+          {/* Contact */}
           <li className="nav-item">
             <button
               onClick={() => scrollToSection('contact')}
@@ -226,18 +274,6 @@ const Navbar = () => {
 
         {/* Actions à droite (visibles UNIQUEMENT sur desktop) */}
         <div className="nav-actions desktop-only">
-          {/* <button 
-            className="action-btn search-toggle"
-            onClick={() => setShowSearch(!showSearch)}
-          >
-            <AiOutlineSearch />
-          </button> */}
-
-          {/* <button className="action-btn notification-btn">
-            <FaBell />
-            <span className="notification-badge">3</span>
-          </button> */}
-
           <button 
             className="reservation-btn"
             onClick={goToReservation}
@@ -245,10 +281,6 @@ const Navbar = () => {
             <MdEvent className="btn-icon" />
             <span>Réserver</span>
           </button>
-
-          {/* <button className="action-btn profile-btn">
-            <FaUserCircle />
-          </button> */}
         </div>
 
         {/* Hamburger menu (visible UNIQUEMENT sur mobile) */}

@@ -33,10 +33,10 @@ const About = () => {
                 <i className="fas fa-check-circle"></i>
                 <span>Raffiné</span>
               </div>
-              <div className="feature-point">
+              {/* <div className="feature-point">
                 <i className="fas fa-check-circle"></i>
                 <span>Modulable</span>
-              </div>
+              </div> */}
               <div className="feature-point">
                 <i className="fas fa-check-circle"></i>
                 <span>Adapté aux exigences haut de gamme</span>
@@ -44,31 +44,30 @@ const About = () => {
             </div>
             
             <div className="about-mission">
-              <i className="fas fa-star"></i>
+              {/* <i className="fas fa-star"></i> */}
               <p>Notre mission : faire de chaque événement une expérience unique</p>
-              <i className="fas fa-star"></i>
+              {/* <i className="fas fa-star"></i> */}
             </div>
           </div>
         </div>
 
         {/* Contenu principal */}
         <div className="about-content">
-          {/* Partie gauche - Image avec statistiques */}
           <div className="about-image-container">
             <div className="about-image-main">
               <img 
-                src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                src="/img/image20.jpeg" 
                 alt="Notre équipe" 
                 className="about-image"
               />
             </div>
             
             {/* Miniatures d'images */}
-            <div className="about-image-thumbnails">
+            {/* <div className="about-image-thumbnails">
               <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Événement 1" />
               <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Événement 2" />
               <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Événement 3" />
-            </div>
+              </div> */}
           </div>
 
           {/* Partie droite - Texte et valeurs */}
@@ -132,8 +131,9 @@ const About = () => {
         </div>
 
         {/* Section Prestations */}
-        <div className="about-prestations">
-          <h3 className="section-title-purple">NOS PRESTATIONS</h3>
+        <section id='offres'>
+              <div className="about-prestations">
+          <h3 className="section-title-purple">NOS OFFRES</h3>
           <div className="prestations-grid">
             <div className="prestation-card">
               <i className="fas fa-ring"></i>
@@ -160,7 +160,7 @@ const About = () => {
             <div className="salle-feature">
               <i className="fas fa-users"></i>
               <div>
-                <strong>Capacité :</strong> 400 et 300 places assises
+                <strong>Capacité :</strong> 350 et 600 places 
               </div>
             </div>
             <div className="salle-feature">
@@ -190,36 +190,34 @@ const About = () => {
           </div>
         </div>
 
-        {/* Section Galerie */}
+        {/* Section Galerie
         <div className="about-galerie">
           <h3 className="section-title-purple"> GALERIE</h3>
-          <p className="galerie-note"> (Photos réelles)</p>
           <div className="galerie-grid">
             <img src="/img/img1.jpg" alt="Salle 1" />
             <img src="/img/img2.jpg" alt="Salle 2" />
             <img src="/img/img3.jpg" alt="Salle 3" />
             <img src="/img/img4.jpg" alt="Salle 4" />
           </div>
-        </div>
+        </div> */}
 
         {/* Section Formules */}
         <div className="about-formules">
           <h3 className="section-title-purple"> NOS FORMULES</h3>
           <div className="formules-grid">
-            <div className="formule-card standard">
-              <div className="formule-icon">💎</div>
-              <h4>Formule Standard</h4>
-              <p>Location simple de la salle</p>
-            </div>
             <div className="formule-card confort">
               <div className="formule-icon">💎💎</div>
-              <h4>Formule Confort</h4>
+              <h4>Formule VIP / Corporate</h4>
               <p>Salle + décoration de base</p>
+              <p>Expérience élégante et intimiste</p>
+              <p>Accompagnement personnalisé</p>
             </div>
             <div className="formule-card premium">
               <div className="formule-icon">💎💎💎</div>
               <h4>Formule Premium</h4>
               <p>Salle + décoration + accompagnement événementiel</p>
+              <p>Expérience grandiose haut de gamme</p>
+              <p>Organisation sur-mesure</p>
             </div>
           </div>
           <p className="tarif-note"> Tarifs sur demande</p>
@@ -227,6 +225,8 @@ const About = () => {
             Demander un devis
           </button>
         </div>
+        </section>
+        
       </div>
     </section>
   );

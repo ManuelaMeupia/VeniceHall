@@ -205,11 +205,11 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="testimonials">
+    <section id="temoignages" className="testimonials">
       <div className="testimonials-container">
         {/* En-tête */}
         <div className="testimonials-header">
-          <span className="testimonials-badge">⭐ Avis Clients</span>
+          <span className="testimonials-badge">Avis Clients</span>
           <h2 className="testimonials-title">
             Ce que disent <span className="text-gradient">nos clients</span>
           </h2>

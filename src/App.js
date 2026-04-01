@@ -10,6 +10,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Reservation from './components/Reservation';
 import WhatsAppButton from './components/WhatsAppButton' ;
 import Testimonials from './components/Testimonials';
+import RoomsGrid  from './components/RoomsGrid';
 import './App.css';
 
 function App() {
@@ -34,12 +35,14 @@ function App() {
           <Route path="/" element={
             <>
               <Hero scrollToSection={scrollToSection} />
+              
               <section id="salles" className="section-salles">
                 <RoomCarousel />
               </section>
-              <WhyChooseUs />
+              <RoomsGrid />
               <About />
-              <Testimonials/>
+              <WhyChooseUs />
+              <Testimonials />
               <Contact />
             </>
           } />
