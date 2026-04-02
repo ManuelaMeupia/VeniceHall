@@ -16,7 +16,7 @@ const RoomsGrid = () => {
   const rooms = [
     {
       id: 1,
-      name: "Pack Premium",
+      name: "Salle Premium",
       capacity: "600 personnes",
       // price: "1 500 000 FCFA",
       images: [
@@ -37,7 +37,7 @@ const RoomsGrid = () => {
     },
     {
       id: 2,
-      name: "Salle Élégance",
+      name: "Salle VIP (Corporate)",
       capacity: "350 personnes",
       // price: "800 000 FCFA",
       images: [

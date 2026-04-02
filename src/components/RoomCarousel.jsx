@@ -15,51 +15,51 @@ const RoomCarousel = () => {
   const rooms = [
     {
       id: 1,
-      name: "Salle Élégance",
-      capacity: "150 personnes",
-      price: "800 000 FCFA",
+      // name: "Salle Élégance",
+      // capacity: "150 personnes",
+      // price: "800 000 FCFA",
       image: "/img/img1.jpg",
-      description: "Magnifique salle avec lustres en cristal et parquet"
+      // description: "Magnifique salle avec lustres en cristal et parquet"
     },
     {
       id: 2,
-      name: "Jardin d'Été",
-      capacity: "200 personnes",
-      price: "750€",
+      // name: "Jardin d'Été",
+      // capacity: "200 personnes",
+      // price: "750€",
       image: "/img/img2.jpg",
-      description: "Espace extérieur couvert avec jardin paysager"
+      // description: "Espace extérieur couvert avec jardin paysager"
     },
     {
       id: 3,
-      name: "Loft Moderne",
-      capacity: "100 personnes",
-      price: "400€",
+      // name: "Loft Moderne",
+      // capacity: "100 personnes",
+      // price: "400€",
       image: "/img/img3.jpg",
-      description: "Style industriel avec équipements high-tech"
+      // description: "Style industriel avec équipements high-tech"
     },
     {
       id: 4,
-      name: "Salle Royale",
-      capacity: "300 personnes",
-      price: "1200€",
+      // name: "Salle Royale",
+      // capacity: "300 personnes",
+      // price: "1200€",
       image: "/img/img4.jpg",
-      description: "Espace prestigieux pour grands événements"
+      // description: "Espace prestigieux pour grands événements"
     },
     {
       id: 5,
-      name: "Espace Contemporain",
-      capacity: "80 personnes",
-      price: "400 000 FCFA",
+      // name: "Espace Contemporain",
+      // capacity: "80 personnes",
+      // price: "400 000 FCFA",
       image: "/img/img5.jpg",
-      description: "Design moderne et épuré"
+      // description: "Design moderne et épuré"
     },
     {
       id: 6,
-      name: "Espace Contemporain",
-      capacity: "80 personnes",
-      price: "300 000 FCFA",
+      // name: "Espace Contemporain",
+      // capacity: "80 personnes",
+      // price: "300 000 FCFA",
       image: "/img/img6.jpg",
-      description: "Design moderne et épuré"
+      // description: "Design moderne et épuré"
     }
   ];
 
@@ -173,7 +173,7 @@ const RoomCarousel = () => {
                 style={{ cursor: 'pointer' }}
               />
               <div className="carousel-overlay">
-                <h3>{room.name}</h3>
+                {/* <h3>{room.name}</h3>
                 <p className="room-description">{room.description}</p>
                 <div className="room-details">
                   <span className="room-capacity">
@@ -182,7 +182,7 @@ const RoomCarousel = () => {
                   <span className="room-price">
                     <i className="fas fa-franc-sign"></i> {room.price}
                   </span>
-                </div>
+                </div> */}
                 <button 
                   className="room-btn"
                   onClick={goToReservation}

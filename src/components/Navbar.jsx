@@ -231,7 +231,7 @@ const Navbar = () => {
               <span className="nav-icon">
                 <FaStar />
               </span>
-              <span className="nav-text">Témoignages</span>
+              <span className="nav-text">Avis</span>
               {activeLink === 'temoignages' && <span className="nav-dot"></span>}
             </button>
           </li>
