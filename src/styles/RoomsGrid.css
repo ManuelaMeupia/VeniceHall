@@ -1,0 +1,592 @@
+/* Section des salles */
+.rooms-grid-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  scroll-margin-top: 80px;
+}
+
+.rooms-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* En-tête */
+.rooms-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.rooms-badge {
+  display: inline-block;
+  background: rgba(92, 42, 189, 0.1);
+  color: #5c2abd;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.rooms-title {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #5c2abd 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rooms-subtitle {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Grille des salles */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+/* Carte de salle */
+.room-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.room-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 45px rgba(92, 42, 189, 0.15);
+}
+
+.room-card.highlight {
+  border: 2px solid #5c2abd;
+}
+
+.room-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #5c2abd, #8b5cf6);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.room-badge i {
+  font-size: 0.9rem;
+}
+
+.room-image {
+  height: 280px;
+  overflow: hidden;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.room-card:hover .room-image img {
+  transform: scale(1.05);
+}
+
+.room-content {
+  padding: 1.8rem;
+}
+
+.room-name {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.room-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Caractéristiques */
+.room-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.feature-item svg {
+  color: #5c2abd;
+  font-size: 0.9rem;
+}
+
+/* Prix */
+.room-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.price-amount {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #5c2abd;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.price-amount svg {
+  font-size: 1.2rem;
+}
+
+.price-period {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Bouton réserver */
+.room-reserve-btn {
+  width: 100%;
+  background: #5c2abd;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.room-reserve-btn:hover {
+  background: #6d3bc9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(92, 42, 189, 0.3);
+}
+
+.room-reserve-btn i {
+  transition: transform 0.3s ease;
+}
+
+.room-reserve-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+  .rooms-grid {
+    gap: 2rem;
+  }
+  
+  .room-image {
+    height: 250px;
+  }
+  
+  .room-name {
+    font-size: 1.5rem;
+  }
+  
+  .price-amount {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rooms-grid-section {
+    padding: 60px 0;
+  }
+  
+  .rooms-container {
+    padding: 0 1rem;
+  }
+  
+  .rooms-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .room-image {
+    height: 220px;
+  }
+  
+  .room-content {
+    padding: 1.5rem;
+  }
+  
+  .room-features {
+    gap: 0.8rem;
+  }
+  
+  .feature-item {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+  }
+  
+  .price-amount {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .room-badge {
+    top: 15px;
+    left: 15px;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+  
+  .room-image {
+    height: 200px;
+  }
+  
+  .room-name {
+    font-size: 1.3rem;
+  }
+  
+  .room-description {
+    font-size: 0.9rem;
+  }
+  
+  .room-features {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .feature-item {
+    width: fit-content;
+  }
+}
+
+/* Image cliquable avec overlay */
+.room-image {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  height: 280px;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.room-image:hover img {
+  transform: scale(1.1);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(92, 42, 189, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.room-image:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay i {
+  font-size: 2rem;
+}
+
+.image-overlay span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Miniatures */
+.room-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.thumbnail {
+  flex: 1;
+  height: 80px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover img {
+  transform: scale(1.1);
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Modal galerie */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.gallery-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav.prev {
+  left: 20px;
+}
+
+.modal-nav.next {
+  right: 20px;
+}
+
+.modal-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 10px;
+  animation: zoomIn 0.3s ease;
+}
+
+.modal-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-info h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.modal-counter {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .room-image {
+    height: 220px;
+  }
+  
+  .room-thumbnails {
+    padding: 0.8rem;
+  }
+  
+  .thumbnail {
+    height: 60px;
+  }
+  
+  .modal-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .modal-nav.prev {
+    left: 10px;
+  }
+  
+  .modal-nav.next {
+    right: 10px;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .modal-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .modal-info h3 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .room-thumbnails {
+    display: none;
+  }
+}
