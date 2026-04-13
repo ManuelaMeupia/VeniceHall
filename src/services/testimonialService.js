@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// Après inscription, récupérez ces informations dans votre dashboard
-// Allez dans "Account" → "API Keys"
-const API_KEY = 'VOTRE_API_KEY'; // À récupérer après inscription
-const BIN_ID = 'VOTRE_BIN_ID';   // À créer après inscription
+const API_KEY = '$2a$10$ZN9CenkQtjxn9o55Y0JKa.9uKvk9INIHZs4pbrtBTnaVFVlZuh62G';
+const BIN_ID = '69dcd76236566621a8aa7917';
 
 const api = axios.create({
   baseURL: 'https://api.jsonbin.io/v3',

@@ -947,3 +947,36 @@
     font-size: 1.4rem;
   }
 }
+
+.testimonials-loading {
+  text-align: center;
+  padding: 50px;
+}
+
+.spinner-large {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #5c2abd;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.admin-stats {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 1rem;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+}
