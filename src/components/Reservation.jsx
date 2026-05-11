@@ -404,20 +404,20 @@ const Reservation = () => {
             <div className="info-card">
               <i className="fas fa-clock"></i>
               <h4>Horaires</h4>
-              <p>Lundi - Samedi: 9h - 20h</p>
-              <p>Dimanche: Sur rendez-vous</p>
+              <p>24h/24</p>
+              <p>7 jours/7</p>
             </div>
             <div className="info-card">
               <i className="fas fa-euro-sign"></i>
               <h4>Paiement</h4>
-              <p>Arrhes de 30% à la réservation</p>
+              <p>Arrhes de 70% à la réservation</p>
               <p>Solde 7 jours avant l'événement</p>
             </div>
             <div className="info-card">
               <i className="fas fa-shield-alt"></i>
               <h4>Annulation</h4>
               <p>Gratuite jusqu'à 30 jours avant</p>
-              <p>50% de frais entre 30 et 15 jours</p>
+              <p>20% de frais entre 30 le jour J</p>
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ const Hero = ({ scrollToSection }) => {
           
           <p className="hero-subtitle">
             Découvrez Venice Hall, l'écrin idéal pour vos célébrations d'exception. 
-            Situé au cœur de Yaoundé, nos espaces allient raffinement et modernité. Offrez à vos événements un cadre d’exception à Yaoundé pour vos : Mariages  Anniversaires  Événements privés  Corporate.
+            Situé au cœur de Yaoundé, nos espaces allient raffinement et modernité. Offrez à vos événements un cadre d’exception pour vos : mariages,  anniversaires,  événements privés et corporate.
           </p>
           
           <div className="hero-features-premium">

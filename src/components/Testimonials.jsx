@@ -202,14 +202,14 @@ const Testimonials = () => {
           <div className="stats-card">
             <div className="stats-rating">
               <span className="rating-number">{averageRating}</span>
-              <span className="rating-outof">/5</span>
+              {/* <span className="rating-outof">/5</span> */}
             </div>
             <div className="stats-stars">
               {renderStars(parseFloat(averageRating))}
             </div>
             <p className="stats-count">Basé sur {verifiedTestimonials.length} avis</p>
           </div>
-          <div className="stats-card">
+          {/* <div className="stats-card">
             <div className="stats-percentage">
               <span className="percentage-number">{fiveStarPercentage}%</span>
               <span className="percentage-label">de clients satisfaits</span>
@@ -218,7 +218,7 @@ const Testimonials = () => {
               <div className="bar-fill" style={{ width: `${fiveStarPercentage}%` }}></div>
             </div>
             <p className="stats-note">Note 5 étoiles</p>
-          </div>
+          </div> */}
         </div>
 
         {/* Bouton ajouter avis */}
