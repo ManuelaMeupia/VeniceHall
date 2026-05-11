@@ -11,8 +11,7 @@ const Reservation = () => {
     email: '',
     telephone: '',
     typeEvenement: '',
-    dateDebut: '',
-    dateFin: '',
+    dateEvent: '',      // ← Une seule date
     nombreInvites: '',
     message: ''
   });
@@ -75,24 +74,15 @@ const Reservation = () => {
       newErrors.typeEvenement = 'Veuillez sélectionner un type d\'événement';
     }
 
-    if (!formData.dateDebut) {
-      newErrors.dateDebut = 'La date de début est requise';
+    // Validation de la date de l'événement
+    if (!formData.dateEvent) {
+      newErrors.dateEvent = 'La date de l\'événement est requise';
     } else {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      const startDate = new Date(formData.dateDebut);
-      if (startDate < today) {
-        newErrors.dateDebut = 'La date ne peut pas être dans le passé';
-      }
-    }
-
-    if (!formData.dateFin) {
-      newErrors.dateFin = 'La date de fin est requise';
-    } else if (formData.dateDebut && formData.dateFin) {
-      const startDate = new Date(formData.dateDebut);
-      const endDate = new Date(formData.dateFin);
-      if (endDate <= startDate) {
-        newErrors.dateFin = 'La date de fin doit être postérieure à la date de début';
+      const eventDate = new Date(formData.dateEvent);
+      if (eventDate < today) {
+        newErrors.dateEvent = 'La date ne peut pas être dans le passé';
       }
     }
 
@@ -101,6 +91,17 @@ const Reservation = () => {
     }
 
     return newErrors;
+  };
+
+  // Formatage de la date
+  const formatDate = (dateString) => {
+    if (!dateString) return 'Non spécifiée';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('fr-FR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
   };
 
   // Soumission du formulaire
@@ -116,7 +117,6 @@ const Reservation = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulation d'envoi API
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       console.log('Réservation envoyée:', formData);
@@ -139,8 +139,7 @@ const Reservation = () => {
         email: '',
         telephone: '',
         typeEvenement: '',
-        dateDebut: '',
-        dateFin: '',
+        dateEvent: '',
         nombreInvites: '',
         message: ''
       });
@@ -156,8 +155,7 @@ const Reservation = () => {
       email: '',
       telephone: '',
       typeEvenement: '',
-      dateDebut: '',
-      dateFin: '',
+      dateEvent: '',
       nombreInvites: '',
       message: ''
     });
@@ -195,7 +193,6 @@ const Reservation = () => {
               <h2>Réservation envoyée !</h2>
               <p>Votre demande de réservation a bien été reçue.</p>
               
-              {/* Composant PDF */}
               <div className="pdf-download-container">
                 <ReservationPDF 
                   reservationData={reservationComplete} 
@@ -263,7 +260,7 @@ const Reservation = () => {
                   value={formData.telephone}
                   onChange={handleChange}
                   className={errors.telephone ? 'error' : ''}
-                  placeholder=""
+                  placeholder="+237 6 99 99 99 99"
                 />
                 {errors.telephone && <span className="error-message">{errors.telephone}</span>}
               </div>
@@ -289,41 +286,22 @@ const Reservation = () => {
                 {errors.typeEvenement && <span className="error-message">{errors.typeEvenement}</span>}
               </div>
 
-              {/* Dates */}
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="dateDebut">
-                    <FaCalendarAlt className="input-icon" />
-                    Date de début <span className="required">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    id="dateDebut"
-                    name="dateDebut"
-                    value={formData.dateDebut}
-                    onChange={handleChange}
-                    className={errors.dateDebut ? 'error' : ''}
-                    min={new Date().toISOString().split('T')[0]}
-                  />
-                  {errors.dateDebut && <span className="error-message">{errors.dateDebut}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="dateFin">
-                    <FaCalendarAlt className="input-icon" />
-                    Date de fin <span className="required">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    id="dateFin"
-                    name="dateFin"
-                    value={formData.dateFin}
-                    onChange={handleChange}
-                    className={errors.dateFin ? 'error' : ''}
-                    min={formData.dateDebut || new Date().toISOString().split('T')[0]}
-                  />
-                  {errors.dateFin && <span className="error-message">{errors.dateFin}</span>}
-                </div>
+              {/* Date de l'événement (champ unique) */}
+              <div className="form-group">
+                <label htmlFor="dateEvent">
+                  <FaCalendarAlt className="input-icon" />
+                  Date de l'événement <span className="required">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="dateEvent"
+                  name="dateEvent"
+                  value={formData.dateEvent}
+                  onChange={handleChange}
+                  className={errors.dateEvent ? 'error' : ''}
+                  min={new Date().toISOString().split('T')[0]}
+                />
+                {errors.dateEvent && <span className="error-message">{errors.dateEvent}</span>}
               </div>
 
               {/* Nombre d'invités */}

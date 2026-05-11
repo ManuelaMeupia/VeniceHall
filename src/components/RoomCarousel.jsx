@@ -18,7 +18,7 @@ const RoomCarousel = () => {
       // name: "Salle Élégance",
       // capacity: "150 personnes",
       // price: "800 000 FCFA",
-      image: "/img/img1.jpg",
+      image: "/img/img01.jpeg",
       // description: "Magnifique salle avec lustres en cristal et parquet"
     },
     {
@@ -26,7 +26,7 @@ const RoomCarousel = () => {
       // name: "Jardin d'Été",
       // capacity: "200 personnes",
       // price: "750€",
-      image: "/img/img2.jpg",
+      image: "/img/img02.jpeg",
       // description: "Espace extérieur couvert avec jardin paysager"
     },
     {

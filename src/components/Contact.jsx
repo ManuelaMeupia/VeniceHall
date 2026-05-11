@@ -233,7 +233,7 @@ const Contact = () => {
             <div className="contact-map">
               <iframe
                 title="Notre emplacement"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1801.1368162568576!2d11.535527505721493!3d3.886690833549571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bc592a4556a1d%3A0x351b78279c6f7150!2sPlace%20Saint%20Josu%C3%A9!5e1!3m2!1sfr!2scm!4v1773910919280!5m2!1sfr!2scm"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.641765088294!2d11.531717675512342!3d3.8867283381138407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x108bc5449d6daeb9%3A0x34ef9ec9493cec8a!2sVenice%20Hall!5e0!3m2!1sfr!2sus!4v1778511917106!5m2!1sfr!2sus"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

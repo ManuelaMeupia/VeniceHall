@@ -260,7 +260,7 @@ const ReservationPDF = ({ reservationData, onDownloadComplete }) => {
             paddingTop: '12px' 
           }}>
             <p style={{ margin: '0' }}>Venice Hall - Texaco Omnisport, Yaoundé</p>
-            <p style={{ margin: '4px 0 0 0' }}>Tél: +237 693 830 605 | Email: contact@venicehall.com</p>
+            <p style={{ margin: '4px 0 0 0' }}>Tél: +237 6 51 61 98 94 | Email: contact@venicehall.com</p>
             <p style={{ margin: '8px 0 0 0', fontWeight: 'bold' }}>Ce document est une preuve de réservation</p>
           </div>
         </div>
