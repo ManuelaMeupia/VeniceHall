@@ -180,7 +180,7 @@ const Reservation = () => {
       <div className="reservation-container">
         {/* En-tête */}
         <div className="reservation-header">
-          <span className="reservation-badge">Réservez votre espace</span>
+          <span className="reservation-badge">Reservation</span>
           <h1 className="reservation-title">
             Réserver une <span className="text-gradient">salle</span>
           </h1>
