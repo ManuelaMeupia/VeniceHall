@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCalendarAlt, FaUser, FaEnvelope, FaPhone, FaGlassCheers, FaTimes, FaCheck } from 'react-icons/fa';
+import { FaCalendarAlt, FaUser, FaEnvelope, FaPhone, FaGlassCheers, FaTimes, FaCheck, FaMoneyBill } from 'react-icons/fa';
 import ReservationPDF from './ReservationPDF';
 import '../styles/Reservation.css';
 
@@ -11,8 +11,9 @@ const Reservation = () => {
     email: '',
     telephone: '',
     typeEvenement: '',
-    dateEvent: '',      // ← Une seule date
+    dateEvent: '',
     nombreInvites: '',
+    budget: '',        // ← Ajout du champ budget
     message: ''
   });
 
@@ -31,6 +32,16 @@ const Reservation = () => {
     'Soirée privée',
     'Réunion de famille',
     'Autre'
+  ];
+
+  // Options de budget
+  const budgetOptions = [
+    'Moins de 500 000 FCFA',
+    '500 000 - 1 000 000 FCFA',
+    '1 000 000 - 2 000 000 FCFA',
+    '2 000 000 - 5 000 000 FCFA',
+    '5 000 000 FCFA et plus',
+    'À définir ensemble'
   ];
 
   // Gestion des changements de champs
@@ -90,21 +101,15 @@ const Reservation = () => {
       newErrors.nombreInvites = 'Le nombre d\'invités doit être supérieur à 0';
     }
 
+    // Budget (optionnel, pas d'erreur si non renseigné)
+    if (formData.budget && formData.budget.trim() === '') {
+      // Pas d'erreur, le budget est optionnel
+    }
+
     return newErrors;
   };
 
-  // Formatage de la date
-  const formatDate = (dateString) => {
-    if (!dateString) return 'Non spécifiée';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('fr-FR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
-
-  // Soumission du formulaire
+    // Soumission du formulaire
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -141,6 +146,7 @@ const Reservation = () => {
         typeEvenement: '',
         dateEvent: '',
         nombreInvites: '',
+        budget: '',
         message: ''
       });
       setErrors({});
@@ -157,6 +163,7 @@ const Reservation = () => {
       typeEvenement: '',
       dateEvent: '',
       nombreInvites: '',
+      budget: '',
       message: ''
     });
     setShowSuccess(false);
@@ -286,7 +293,7 @@ const Reservation = () => {
                 {errors.typeEvenement && <span className="error-message">{errors.typeEvenement}</span>}
               </div>
 
-              {/* Date de l'événement (champ unique) */}
+              {/* Date de l'événement */}
               <div className="form-group">
                 <label htmlFor="dateEvent">
                   <FaCalendarAlt className="input-icon" />
@@ -321,6 +328,28 @@ const Reservation = () => {
                   min="1"
                 />
                 {errors.nombreInvites && <span className="error-message">{errors.nombreInvites}</span>}
+              </div>
+
+              {/* Budget (NOUVEAU CHAMP) */}
+              <div className="form-group">
+                <label htmlFor="budget">
+                  <FaMoneyBill className="input-icon" />
+                  Budget estimatif
+                </label>
+                <select
+                  id="budget"
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className={errors.budget ? 'error' : ''}
+                >
+                  <option value="">Sélectionnez une tranche de budget</option>
+                  {budgetOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+                {errors.budget && <span className="error-message">{errors.budget}</span>}
+                <small className="field-note">Ce champ est optionnel, il nous aide à mieux vous proposer des offres adaptées.</small>
               </div>
 
               {/* Message */}
