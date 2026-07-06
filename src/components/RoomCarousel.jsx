@@ -18,7 +18,7 @@ const RoomCarousel = () => {
       // name: "Salle Élégance",
       // capacity: "150 personnes",
       // price: "800 000 FCFA",
-      image: "/img/img01.jpeg",
+      image: "/img/imgg1.jpg",
       // description: "Magnifique salle avec lustres en cristal et parquet"
     },
     {
@@ -26,7 +26,7 @@ const RoomCarousel = () => {
       // name: "Jardin d'Été",
       // capacity: "200 personnes",
       // price: "750€",
-      image: "/img/img02.jpeg",
+      image: "/img/img2.png",
       // description: "Espace extérieur couvert avec jardin paysager"
     },
     {
@@ -34,7 +34,7 @@ const RoomCarousel = () => {
       // name: "Loft Moderne",
       // capacity: "100 personnes",
       // price: "400€",
-      image: "/img/img3.jpg",
+      image: "/img/imgg2.jpg",
       // description: "Style industriel avec équipements high-tech"
     },
     {
@@ -42,7 +42,7 @@ const RoomCarousel = () => {
       // name: "Salle Royale",
       // capacity: "300 personnes",
       // price: "1200€",
-      image: "/img/img4.jpg",
+      image: "/img/imgg3.jpg",
       // description: "Espace prestigieux pour grands événements"
     },
     {
@@ -50,7 +50,7 @@ const RoomCarousel = () => {
       // name: "Espace Contemporain",
       // capacity: "80 personnes",
       // price: "400 000 FCFA",
-      image: "/img/img5.jpg",
+      image: "/img/imgg4.jpg",
       // description: "Design moderne et épuré"
     },
     {
@@ -58,7 +58,7 @@ const RoomCarousel = () => {
       // name: "Espace Contemporain",
       // capacity: "80 personnes",
       // price: "300 000 FCFA",
-      image: "/img/img6.jpg",
+      image: "/img/imgg5.jpg",
       // description: "Design moderne et épuré"
     }
   ];

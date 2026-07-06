@@ -20,10 +20,10 @@ const RoomsGrid = () => {
       capacity: "600 personnes",
       // price: "1 500 000 FCFA",
       images: [
-        "/img/img1.jpg",
-        "/img/img1.jpg",
-        "/img/img1.jpg",
-        "/img/img1.jpg"
+        "/img/grande salle 5.jpg",
+        "/img/grande salle1.jpg",
+        "/img/grande salle2.jpg",
+        "/img/grande salle3.jpg"
       ],
       description: "•	Expérience grandiose haut de gamme, Organisation sur-mesure, salle la plus spacieuse.",
       features: [
@@ -41,10 +41,9 @@ const RoomsGrid = () => {
       capacity: "350 personnes",
       // price: "800 000 FCFA",
       images: [
-        "/img/salle2-1.jpg",
-        "/img/salle2-2.jpg",
-        "/img/salle2-3.jpg",
-        "/img/salle2-4.jpg"
+        "/img/petite salle.jpg",
+        "/img/petite salle.jpg",
+        "/img/petite salle.jpg"
       ],
       description: "•	Espace élégant, raffiné et intimiste; Accompagnement personnalisé.",
       features: [

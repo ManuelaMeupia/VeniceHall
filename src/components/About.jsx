@@ -61,7 +61,7 @@ const About = () => {
                 className="about-image"
               />
               <img 
-                src="/img/image21.jpg" 
+                src="/img/ext.jpg" 
                 alt="Notre équipe" 
                 className="about-image"
               />
