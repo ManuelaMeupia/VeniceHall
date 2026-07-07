@@ -148,6 +148,8 @@ const Testimonials = () => {
   const fiveStarPercentage = verifiedTestimonials.length > 0
     ? ((verifiedTestimonials.filter(t => t.rating === 5).length / verifiedTestimonials.length) * 100).toFixed(0)
     : 0;
+console.log("Pourcentage d'avis 5 étoiles :", fiveStarPercentage + "%");
+
 
   const renderStars = (rating, interactive = false, onHover = null, onClick = null) => {
     return [...Array(5)].map((_, index) => {
