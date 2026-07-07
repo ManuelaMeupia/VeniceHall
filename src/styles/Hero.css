@@ -1,6 +1,6 @@
 /* ===== SECTION HERO ===== */
 .hero {
-  /* background-image: url('/images/salle.png');  */
+  background-image: url('./salle.png'); 
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
