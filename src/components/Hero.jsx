@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PrivateVisitModal from './PrivateVisitModal';
 import '../styles/Hero.css';
+import salleImage from './components/salle.png';
 
 const Hero = ({ scrollToSection }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,6 +17,12 @@ const Hero = ({ scrollToSection }) => {
   return (
     <>
       <section id="accueil" className="hero">
+        <div 
+          className="hero"
+          style={{ backgroundImage: `url(${salleImage})` }}
+        >
+
+        </div>
         <div className="hero-overlay"></div>
         
         <div className="hero-content">
