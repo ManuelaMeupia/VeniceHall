@@ -60,7 +60,82 @@ const RoomCarousel = () => {
       // price: "300 000 FCFA",
       image: "/img/imgg5.jpg",
       // description: "Design moderne et épuré"
-    }
+    },
+    // {
+    // id: 1,
+    // image: "/videos/salle1.mp4", 
+    
+    // }
+
+    {
+      id: 7,
+      image: "/img/photo1.jpeg",
+    },
+    {
+      id: 8,
+      image: "/img/photo2.jpeg",
+    },
+    {
+      id: 9,
+      image: "/img/photo3.jpeg",
+    },
+    {
+      id: 10,
+      image: "/img/photo4.jpeg",
+    },
+    {
+      id: 11,
+      image: "/img/photo5.jpeg",
+    },
+    {
+      id: 12,
+      image: "/img/photo6.jpeg",
+    },
+    {
+      id: 13,
+      image: "/img/photo7.jpeg",
+    },
+    {
+      id: 14,
+      image: "/img/photo8.jpeg",
+    },
+    {
+      id: 15,
+      image: "/img/photo9.jpeg",
+    },
+    {
+      id: 16,
+      image: "/img/photo10.jpeg",
+    },
+    {
+      id: 17,
+      image: "/img/photo11.jpeg",
+    },
+    {
+      id: 18,
+      image: "/img/photo12.jpeg",
+    },
+    {
+      id: 19,
+      image: "/img/photo13.jpeg",
+    },
+    {
+      id: 20,
+      image: "/img/photo14.jpeg",
+    },
+    {
+      id: 21,
+      image: "/img/photo15.jpeg",
+    },
+    {
+      id: 22,
+      image: "/img/photo16.jpeg",
+    },
+    {
+      id: 23,
+      image: "/img/photo17.jpeg",
+    },
+    
   ];
 
   // Ouvrir le modal avec l'image cliquée
