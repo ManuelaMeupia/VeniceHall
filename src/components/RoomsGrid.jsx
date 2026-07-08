@@ -21,6 +21,7 @@ const RoomsGrid = () => {
       // price: "1 500 000 FCFA",
       images: [
         "/img/photo7.jpeg",
+        "/img/grande salle 5.jpg",
         "/img/grande salle1.jpg",
         "/img/grande salle2.jpg",
         "/img/grande salle3.jpg"
@@ -41,6 +42,7 @@ const RoomsGrid = () => {
       capacity: "350 personnes",
       // price: "800 000 FCFA",
       images: [
+        "/img/photo16.jpeg",
         "/img/petite salle.jpg",
         "/img/petite salle.jpg",
         "/img/petite salle.jpg"
