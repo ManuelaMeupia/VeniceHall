@@ -69,67 +69,67 @@ const RoomCarousel = () => {
 
     {
       id: 7,
-      image: "/img/photo1.jpeg",
+      image: "/img/photo1 copie.jpg",
     },
     {
       id: 8,
-      image: "/img/photo2.jpeg",
+      image: "/img/photo2 copie.jpg",
     },
     {
       id: 9,
-      image: "/img/photo3.jpeg",
+      image: "/img/photo3 copie.jpg",
     },
     {
       id: 10,
-      image: "/img/photo4.jpeg",
+      image: "/img/photo4 copie.jpg",
     },
     {
       id: 11,
-      image: "/img/photo5.jpeg",
+      image: "/img/photo5 copie.jpg",
     },
     {
       id: 12,
-      image: "/img/photo6.jpeg",
+      image: "/img/photo6 copie.jpg",
     },
     {
       id: 13,
-      image: "/img/photo7.jpeg",
+      image: "/img/photo7 copie.jpg",
     },
     {
       id: 14,
-      image: "/img/photo8.jpeg",
+      image: "/img/photo8 copie.jpg",
     },
     {
       id: 15,
-      image: "/img/photo9.jpeg",
+      image: "/img/photo9 copie.jpg",
     },
     {
       id: 16,
-      image: "/img/photo10.jpeg",
+      image: "/img/photo10 copie.jpg",
     },
     {
       id: 17,
-      image: "/img/photo11.jpeg",
+      image: "/img/photo11 copie.jpg",
     },
     {
       id: 18,
-      image: "/img/photo12.jpeg",
+      image: "/img/photo12 copie.jpg",
     },
     {
       id: 19,
-      image: "/img/photo13.jpeg",
+      image: "/img/photo13 copie.jpg",
     },
     {
       id: 20,
-      image: "/img/photo14.jpeg",
+      image: "/img/photo14 copie.jpg",
     },
     {
       id: 21,
-      image: "/img/photo15.jpeg",
+      image: "/img/photo15 copie.jpg",
     },
     {
       id: 22,
-      image: "/img/photo16.jpeg",
+      image: "/img/photo16 copie.jpg",
     },
     {
       id: 23,
