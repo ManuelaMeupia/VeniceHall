@@ -133,7 +133,7 @@ const RoomCarousel = () => {
     },
     {
       id: 23,
-      image: "/img/photo17.jpeg",
+      image: "/img/photo17 copie.jpg",
     },
     
   ];
