@@ -25,8 +25,8 @@ const Hero = ({ scrollToSection }) => {
         </div> */}
         <div className="hero-overlay"></div>
         
-        {/* <div className="hero-content">
-          <span className="hero-badge">
+        <div className="hero-content">
+          {/* <span className="hero-badge">
             Salle de prestige
           </span>
           
