@@ -20,7 +20,7 @@ const RoomsGrid = () => {
       capacity: "600 personnes",
       // price: "1 500 000 FCFA",
       images: [
-        "/img/photo7.jpeg",
+        "/img/photo7 copie.jpg",
         "/img/grande salle 5.jpg",
         "/img/grande salle1.jpg",
         "/img/grande salle2.jpg",
