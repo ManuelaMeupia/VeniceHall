@@ -18,7 +18,7 @@ const RoomCarousel = () => {
       // name: "Salle Élégance",
       // capacity: "150 personnes",
       // price: "800 000 FCFA",
-      image: "/img/imgg1.jpg",
+      image: "/img/image1.jpg",
       // description: "Magnifique salle avec lustres en cristal et parquet"
   //     loading="lazy"
   // decoding="async"
@@ -28,9 +28,9 @@ const RoomCarousel = () => {
       // name: "Jardin d'Été",
       // capacity: "200 personnes",
       // price: "750€",
-      image: "/img/img2.png",
+      image: "/img/image2.jpg",
       // description: "Espace extérieur couvert avec jardin paysager"
-    }
+    },
     // {
     //   id: 3,
     //   // name: "Loft Moderne",
