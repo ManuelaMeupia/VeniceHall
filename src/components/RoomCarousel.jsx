@@ -20,6 +20,8 @@ const RoomCarousel = () => {
       // price: "800 000 FCFA",
       image: "/img/imgg1.jpg",
       // description: "Magnifique salle avec lustres en cristal et parquet"
+  //     loading="lazy"
+  // decoding="async"
     },
     {
       id: 2,
@@ -28,113 +30,113 @@ const RoomCarousel = () => {
       // price: "750€",
       image: "/img/img2.png",
       // description: "Espace extérieur couvert avec jardin paysager"
-    },
-    {
-      id: 3,
-      // name: "Loft Moderne",
-      // capacity: "100 personnes",
-      // price: "400€",
-      image: "/img/imgg2.jpg",
-      // description: "Style industriel avec équipements high-tech"
-    },
-    {
-      id: 4,
-      // name: "Salle Royale",
-      // capacity: "300 personnes",
-      // price: "1200€",
-      image: "/img/imgg3.jpg",
-      // description: "Espace prestigieux pour grands événements"
-    },
-    {
-      id: 5,
-      // name: "Espace Contemporain",
-      // capacity: "80 personnes",
-      // price: "400 000 FCFA",
-      image: "/img/imgg4.jpg",
-      // description: "Design moderne et épuré"
-    },
-    {
-      id: 6,
-      // name: "Espace Contemporain",
-      // capacity: "80 personnes",
-      // price: "300 000 FCFA",
-      image: "/img/imgg5.jpg",
-      // description: "Design moderne et épuré"
-    },
+    }
     // {
-    // id: 1,
-    // image: "/videos/salle1.mp4", 
+    //   id: 3,
+    //   // name: "Loft Moderne",
+    //   // capacity: "100 personnes",
+    //   // price: "400€",
+    //   image: "/img/imgg2.jpg",
+    //   // description: "Style industriel avec équipements high-tech"
+    // },
+    // {
+    //   id: 4,
+    //   // name: "Salle Royale",
+    //   // capacity: "300 personnes",
+    //   // price: "1200€",
+    //   image: "/img/imgg3.jpg",
+    //   // description: "Espace prestigieux pour grands événements"
+    // },
+    // {
+    //   id: 5,
+    //   // name: "Espace Contemporain",
+    //   // capacity: "80 personnes",
+    //   // price: "400 000 FCFA",
+    //   image: "/img/imgg4.jpg",
+    //   // description: "Design moderne et épuré"
+    // },
+    // {
+    //   id: 6,
+    //   // name: "Espace Contemporain",
+    //   // capacity: "80 personnes",
+    //   // price: "300 000 FCFA",
+    //   image: "/img/imgg5.jpg",
+    //   // description: "Design moderne et épuré"
+    // },
+    // // {
+    // // id: 1,
+    // // image: "/videos/salle1.mp4", 
     
-    // }
+    // // }
 
-    {
-      id: 7,
-      image: "/img/photo1 copie.jpg",
-    },
-    {
-      id: 8,
-      image: "/img/photo2 copie.jpg",
-    },
-    {
-      id: 9,
-      image: "/img/photo3 copie.jpg",
-    },
-    {
-      id: 10,
-      image: "/img/photo4 copie.jpg",
-    },
-    {
-      id: 11,
-      image: "/img/photo5 copie.jpg",
-    },
-    {
-      id: 12,
-      image: "/img/photo6 copie.jpg",
-    },
-    {
-      id: 13,
-      image: "/img/photo7 copie.jpg",
-    },
-    {
-      id: 14,
-      image: "/img/photo8 copie.jpg",
-    },
-    {
-      id: 15,
-      image: "/img/photo9 copie.jpg",
-    },
-    {
-      id: 16,
-      image: "/img/photo10 copie.jpg",
-    },
-    {
-      id: 17,
-      image: "/img/photo11 copie.jpg",
-    },
-    {
-      id: 18,
-      image: "/img/photo12 copie.jpg",
-    },
-    {
-      id: 19,
-      image: "/img/photo13 copie.jpg",
-    },
-    {
-      id: 20,
-      image: "/img/photo14 copie.jpg",
-    },
-    {
-      id: 21,
-      image: "/img/photo15 copie.jpg",
-    },
-    {
-      id: 22,
-      image: "/img/photo16 copie.jpg",
-    },
-    {
-      id: 23,
-      image: "/img/photo17 copie.jpg",
-    },
+    // {
+    //   id: 7,
+    //   image: "/img/photo1 copie.jpg",
+    // },
+    // {
+    //   id: 8,
+    //   image: "/img/photo2 copie.jpg",
+    // },
+    // {
+    //   id: 9,
+    //   image: "/img/photo3 copie.jpg",
+    // },
+    // {
+    //   id: 10,
+    //   image: "/img/photo4 copie.jpg",
+    // },
+    // {
+    //   id: 11,
+    //   image: "/img/photo5 copie.jpg",
+    // },
+    // {
+    //   id: 12,
+    //   image: "/img/photo6 copie.jpg",
+    // },
+    // {
+    //   id: 13,
+    //   image: "/img/photo7 copie.jpg",
+    // },
+    // {
+    //   id: 14,
+    //   image: "/img/photo8 copie.jpg",
+    // },
+    // {
+    //   id: 15,
+    //   image: "/img/photo9 copie.jpg",
+    // },
+    // {
+    //   id: 16,
+    //   image: "/img/photo10 copie.jpg",
+    // },
+    // {
+    //   id: 17,
+    //   image: "/img/photo11 copie.jpg",
+    // },
+    // {
+    //   id: 18,
+    //   image: "/img/photo12 copie.jpg",
+    // },
+    // {
+    //   id: 19,
+    //   image: "/img/photo13 copie.jpg",
+    // },
+    // {
+    //   id: 20,
+    //   image: "/img/photo14 copie.jpg",
+    // },
+    // {
+    //   id: 21,
+    //   image: "/img/photo15 copie.jpg",
+    // },
+    // {
+    //   id: 22,
+    //   image: "/img/photo16 copie.jpg",
+    // },
+    // {
+    //   id: 23,
+    //   image: "/img/photo17 copie.jpg",
+    // },
     
   ];
 
