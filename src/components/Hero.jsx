@@ -26,14 +26,14 @@ const Hero = ({ scrollToSection }) => {
         <div className="hero-overlay"></div>
         
         <div className="hero-content">
-          <span className="hero-badge">
+          {/* <span className="hero-badge">
             Salle de prestige
           </span>
           
           <h1 className="hero-title">
             <span className="hero-title-main">VENICE HALL</span>
             <span className="hero-title-secondary">Salle de fête chic et haut de gamme</span>
-          </h1>
+          </h1> */}
           
           <p className="hero-subtitle">
             Découvrez Venice Hall, l'écrin idéal pour vos célébrations d'exception. 
