@@ -26,7 +26,7 @@ const Hero = ({ scrollToSection }) => {
         <div className="hero-overlay"></div>
         
         <div className="hero-content">
-          {/* <span className="hero-badge">
+          <span className="hero-badge">
             Salle de prestige
           </span>
           
@@ -38,7 +38,7 @@ const Hero = ({ scrollToSection }) => {
           <p className="hero-subtitle">
             Découvrez Venice Hall, l'écrin idéal pour vos célébrations d'exception. 
             Situé au cœur de Yaoundé, nos espaces allient raffinement et modernité. Offrez à vos événements un cadre d’exception pour vos : mariages,  anniversaires,  événements privés et corporate.
-          </p> */}
+          </p>
           
           <div className="hero-features-premium">
             <div className="feature-premium">
