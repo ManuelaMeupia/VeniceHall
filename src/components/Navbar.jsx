@@ -309,6 +309,11 @@ const Navbar = () => {
           <IoMdMenu className="hamburger-icon" />
         </button>
       </div>
+
+      {/* Overlay pour fermer le menu en cliquant dans le vide */}
+      {isMenuOpen && (
+        <div className="nav-overlay" onClick={() => setIsMenuOpen(false)}></div>
+      )}
     </nav>
   );
 };

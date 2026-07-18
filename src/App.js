@@ -11,6 +11,7 @@ import Reservation from './components/Reservation';
 import WhatsAppButton from './components/WhatsAppButton' ;
 import Testimonials from './components/Testimonials';
 import RoomsGrid  from './components/RoomsGrid';
+import Admin  from './pages/Admin';
 import './App.css';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
             </>
           } />
           <Route path="/reservation" element={<Reservation />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
 
         <Footer />

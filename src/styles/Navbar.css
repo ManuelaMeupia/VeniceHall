@@ -340,7 +340,32 @@
   display: none;
 }
 
-/* STYLES MOBILE */
+/* ============================================
+   OVERLAY POUR FERMER LE MENU EN CLIQUANT DANS LE VIDE
+   ============================================ */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+  cursor: pointer;
+  display: none;
+}
+
+/* L'overlay n'apparaît que sur mobile quand le menu est ouvert */
+@media screen and (max-width: 768px) {
+  .nav-overlay.active {
+    display: block;
+  }
+}
+
+/* ============================================
+   STYLES MOBILE
+   ============================================ */
 @media screen and (max-width: 1024px) {
   .logo-image {
     width: 70px;
@@ -434,18 +459,6 @@
 
   .nav-menu.active {
     right: 0;
-  }
-
-  .nav-menu.active::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-    animation: fadeIn 0.3s ease;
   }
 
   .nav-link {
