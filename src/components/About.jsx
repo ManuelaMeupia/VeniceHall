@@ -56,23 +56,16 @@ const About = () => {
           <div className="about-image-container">
             <div className="about-image-main">
               <img 
-                src="/img/image20.jpg" 
+                src="/img/ext1.jpg" 
                 alt="Notre équipe" 
                 className="about-image"
               />
               <img 
-                src="/img/ext.jpg" 
+                src="/img/ext2.jpg" 
                 alt="Notre équipe" 
                 className="about-image"
               />
             </div>
-            
-            {/* Miniatures d'images */}
-            {/* <div className="about-image-thumbnails">
-              <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Événement 1" />
-              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Événement 2" />
-              <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Événement 3" />
-              </div> */}
           </div>
 
           {/* Partie droite - Texte et valeurs */}

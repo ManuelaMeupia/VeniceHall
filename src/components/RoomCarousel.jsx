@@ -39,74 +39,62 @@ const RoomCarousel = () => {
       id: 6,
       image: "/img/image6.jpg",
     },
-        // {
-    //   id: 7,
-    //   image: "/img/photo1 copie.jpg",
-    // },
-    // {
-    //   id: 8,
-    //   image: "/img/photo2 copie.jpg",
-    // },
-    // {
-    //   id: 9,
-    //   image: "/img/photo3 copie.jpg",
-    // },
-    // {
-    //   id: 10,
-    //   image: "/img/photo4 copie.jpg",
-    // },
-    // {
-    //   id: 11,
-    //   image: "/img/photo5 copie.jpg",
-    // },
-    // {
-    //   id: 12,
-    //   image: "/img/photo6 copie.jpg",
-    // },
-    // {
-    //   id: 13,
-    //   image: "/img/photo7 copie.jpg",
-    // },
-    // {
-    //   id: 14,
-    //   image: "/img/photo8 copie.jpg",
-    // },
-    // {
-    //   id: 15,
-    //   image: "/img/photo9 copie.jpg",
-    // },
-    // {
-    //   id: 16,
-    //   image: "/img/photo10 copie.jpg",
-    // },
-    // {
-    //   id: 17,
-    //   image: "/img/photo11 copie.jpg",
-    // },
-    // {
-    //   id: 18,
-    //   image: "/img/photo12 copie.jpg",
-    // },
-    // {
-    //   id: 19,
-    //   image: "/img/photo13 copie.jpg",
-    // },
-    // {
-    //   id: 20,
-    //   image: "/img/photo14 copie.jpg",
-    // },
-    // {
-    //   id: 21,
-    //   image: "/img/photo15 copie.jpg",
-    // },
-    // {
-    //   id: 22,
-    //   image: "/img/photo16 copie.jpg",
-    // },
-    // {
-    //   id: 23,
-    //   image: "/img/photo17 copie.jpg",
-    // },
+        {
+      id: 7,
+      image: "/img/image7.jpg",
+    },
+    {
+      id: 8,
+      image: "/img/image8.jpg",
+    },
+    {
+      id: 9,
+      image: "/img/image9.jpg",
+    },
+    {
+      id: 10,
+      image: "/img/image10.jpg",
+    },
+    {
+      id: 11,
+      image: "/img/image11.jpg",
+    },
+    {
+      id: 12,
+      image: "/img/image12.jpg",
+    },
+    {
+      id: 13,
+      image: "/img/image13.jpg",
+    },
+    {
+      id: 14,
+      image: "/img/image14.jpg",
+    },
+    {
+      id: 15,
+      image: "/img/image15.jpg",
+    },
+    {
+      id: 16,
+      image: "/img/image16.jpg",
+    },
+    {
+      id: 17,
+      image: "/img/image17.jpg",
+    },
+    {
+      id: 18,
+      image: "/img/image18.jpg",
+    },
+    {
+      id: 19,
+      image: "/img/image19.jpg",
+    },
+    {
+      id: 20,
+      image: "/img/image200.jpg",
+    },
     
   ];
 

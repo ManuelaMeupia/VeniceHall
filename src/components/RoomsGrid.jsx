@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUsers, FaWifi, FaWind, FaMusic, FaParking, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { MdGirl } from "react-icons/md";
 import '../styles/RoomsGrid.css';
 
 const RoomsGrid = () => {
@@ -20,11 +21,10 @@ const RoomsGrid = () => {
       capacity: "600 personnes",
       // price: "1 500 000 FCFA",
       images: [
-        "/img/photo7 copie.jpg",
-        "/img/grande salle 5.jpg",
-        "/img/grande salle1.jpg",
-        "/img/grande salle2.jpg",
-        "/img/grande salle3.jpg"
+        "/img/GS1.jpg",
+        "/img/GS2.jpg",
+        "/img/GS3.jpg",
+        "/img/GS4.jpg"
       ],
       description: "•	Expérience grandiose haut de gamme, Organisation sur-mesure, salle la plus spacieuse.",
       features: [
@@ -32,7 +32,8 @@ const RoomsGrid = () => {
         { icon: FaWind, text: "Climatisation" },
         { icon: FaMusic, text: "Sonorisation pro" },
         { icon: FaWifi, text: "WiFi haut débit" },
-        { icon: FaParking, text: "Parking privé" }
+        { icon: FaParking, text: "Parking privé" },
+        { icon: MdGirl , text: "Service traiteur" }
       ],
       highlight: true
     },
@@ -42,10 +43,10 @@ const RoomsGrid = () => {
       capacity: "350 personnes",
       // price: "800 000 FCFA",
       images: [
-        "/img/photo16.jpeg",
-        "/img/petite salle.jpg",
-        "/img/petite salle.jpg",
-        "/img/petite salle.jpg"
+        "/img/PS1.jpg",
+        "/img/PS2.jpg",
+        "/img/PS3.jpg",
+        "/img/PS4.jpg"
       ],
       description: "•	Espace élégant, raffiné et intimiste; Accompagnement personnalisé.",
       features: [
@@ -53,7 +54,8 @@ const RoomsGrid = () => {
         { icon: FaWind, text: "Climatisation" },
         { icon: FaMusic, text: "Sonorisation" },
         { icon: FaWifi, text: "WiFi" },
-        { icon: FaParking, text: "Parking" }
+        { icon: FaParking, text: "Parking" },
+        { icon: MdGirl , text: "Service traiteur" }
       ],
       highlight: false
     }
