@@ -56,12 +56,12 @@ const About = () => {
           <div className="about-image-container">
             <div className="about-image-main">
               <img 
-                src="/img/ext1.jpg" 
+                src="/img/ext jour.jpg" 
                 alt="Notre équipe" 
                 className="about-image"
               />
               <img 
-                src="/img/ext2.jpg" 
+                src="/img/ext nuit.jpeg" 
                 alt="Notre équipe" 
                 className="about-image"
               />
