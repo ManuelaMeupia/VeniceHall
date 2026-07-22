@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaStar, FaRegStar, FaUser, FaQuoteLeft, FaTrash, FaCheck, FaTimes, FaCalendar } from 'react-icons/fa';
-import { getTestimonials, addTestimonial, updateTestimonial, deleteTestimonial } from '../services/testimonialService';
+import { FaStar, FaRegStar, FaUser, FaQuoteLeft, FaCheck, FaTimes, FaCalendar } from 'react-icons/fa';
+import { getTestimonials, addTestimonial } from '../services/testimonialService';
 import '../styles/Testimonials.css';
 
 const Testimonials = () => {
@@ -16,10 +16,6 @@ const Testimonials = () => {
   const [showForm, setShowForm] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ show: false, success: false, message: '' });
   const [hoverRating, setHoverRating] = useState(0);
-  const [showAdminPanel, setShowAdminPanel] = useState(false);
-  const [adminPassword, setAdminPassword] = useState('');
-  const [showPasswordPrompt, setShowPasswordPrompt] = useState(false);
-  const [activeTab, setActiveTab] = useState('pending');
 
   // Charger les avis
   useEffect(() => {
@@ -96,50 +92,7 @@ const Testimonials = () => {
     }
   };
 
-  const approveReview = async (id) => {
-    try {
-      await updateTestimonial(id, { verified: true });
-      await loadTestimonials();
-    } catch (error) {
-      console.error('Erreur:', error);
-    }
-  };
-
-  const rejectReview = async (id) => {
-    if (window.confirm('Supprimer cet avis ?')) {
-      try {
-        await deleteTestimonial(id);
-        await loadTestimonials();
-      } catch (error) {
-        console.error('Erreur:', error);
-      }
-    }
-  };
-
-  const deleteReview = async (id) => {
-    if (window.confirm('Supprimer cet avis ?')) {
-      try {
-        await deleteTestimonial(id);
-        await loadTestimonials();
-      } catch (error) {
-        console.error('Erreur:', error);
-      }
-    }
-  };
-
-  const handleAdminAccess = () => {
-    if (adminPassword === 'admin123') {
-      setShowPasswordPrompt(false);
-      setShowAdminPanel(true);
-      setAdminPassword('');
-    } else {
-      alert('Mot de passe incorrect');
-      setAdminPassword('');
-    }
-  };
-
   const verifiedTestimonials = testimonials.filter(t => t.verified);
-  const pendingTestimonials = testimonials.filter(t => !t.verified);
 
   const averageRating = verifiedTestimonials.length > 0 
     ? (verifiedTestimonials.reduce((sum, t) => sum + t.rating, 0) / verifiedTestimonials.length).toFixed(1)
@@ -148,8 +101,6 @@ const Testimonials = () => {
   const fiveStarPercentage = verifiedTestimonials.length > 0
     ? ((verifiedTestimonials.filter(t => t.rating === 5).length / verifiedTestimonials.length) * 100).toFixed(0)
     : 0;
-console.log("Pourcentage d'avis 5 étoiles :", fiveStarPercentage + "%");
-
 
   const renderStars = (rating, interactive = false, onHover = null, onClick = null) => {
     return [...Array(5)].map((_, index) => {
@@ -176,7 +127,7 @@ console.log("Pourcentage d'avis 5 étoiles :", fiveStarPercentage + "%");
     });
   };
 
-  if (loading) {
+  if (loading && testimonials.length === 0) {
     return (
       <div className="testimonials-loading">
         <div className="spinner-large"></div>
@@ -204,14 +155,14 @@ console.log("Pourcentage d'avis 5 étoiles :", fiveStarPercentage + "%");
           <div className="stats-card">
             <div className="stats-rating">
               <span className="rating-number">{averageRating}</span>
-              {/* <span className="rating-outof">/5</span> */}
+              <span className="rating-outof">/5</span>
             </div>
             <div className="stats-stars">
               {renderStars(parseFloat(averageRating))}
             </div>
             <p className="stats-count">Basé sur {verifiedTestimonials.length} avis</p>
           </div>
-          {/* <div className="stats-card">
+          <div className="stats-card">
             <div className="stats-percentage">
               <span className="percentage-number">{fiveStarPercentage}%</span>
               <span className="percentage-label">de clients satisfaits</span>
@@ -220,7 +171,7 @@ console.log("Pourcentage d'avis 5 étoiles :", fiveStarPercentage + "%");
               <div className="bar-fill" style={{ width: `${fiveStarPercentage}%` }}></div>
             </div>
             <p className="stats-note">Note 5 étoiles</p>
-          </div> */}
+          </div>
         </div>
 
         {/* Bouton ajouter avis */}
@@ -293,78 +244,24 @@ console.log("Pourcentage d'avis 5 étoiles :", fiveStarPercentage + "%");
           ))}
         </div>
 
-        {verifiedTestimonials.length === 0 && (
+        {verifiedTestimonials.length === 0 && !loading && (
           <div className="no-reviews"><p>Soyez le premier à donner votre avis !</p></div>
         )}
 
-        {/* Admin */}
-        <div className="admin-access">
-          <button className="admin-btn" onClick={() => setShowPasswordPrompt(true)}>
-            <i className="fas fa-user-shield"></i> Espace Admin
-          </button>
-        </div>
-
-        {/* Popup mot de passe */}
-        {showPasswordPrompt && (
-          <div className="password-modal-overlay" onClick={() => setShowPasswordPrompt(false)}>
-            <div className="password-modal" onClick={(e) => e.stopPropagation()}>
-              <h3>Accès administrateur</h3>
-              <input type="password" placeholder="Mot de passe" value={adminPassword} onChange={(e) => setAdminPassword(e.target.value)} onKeyPress={(e) => e.key === 'Enter' && handleAdminAccess()} />
-              <div className="password-actions">
-                <button className="btn-cancel" onClick={() => setShowPasswordPrompt(false)}>Annuler</button>
-                <button className="btn-confirm" onClick={handleAdminAccess}>Valider</button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Admin Panel */}
-        {showAdminPanel && (
-          <div className="admin-modal-overlay" onClick={() => setShowAdminPanel(false)}>
-            <div className="admin-modal" onClick={(e) => e.stopPropagation()}>
-              <div className="admin-modal-header">
-                <h2>Admin - Gestion des avis</h2>
-                <button className="close-modal" onClick={() => setShowAdminPanel(false)}><FaTimes /></button>
-              </div>
-              <div className="admin-tabs">
-                <button className={`tab-btn ${activeTab === 'pending' ? 'active' : ''}`} onClick={() => setActiveTab('pending')}>En attente ({pendingTestimonials.length})</button>
-                <button className={`tab-btn ${activeTab === 'approved' ? 'active' : ''}`} onClick={() => setActiveTab('approved')}>Approuvés ({verifiedTestimonials.length})</button>
-              </div>
-              <div className="admin-reviews-list">
-                {activeTab === 'pending' && pendingTestimonials.map(r => (
-                  <div key={r.id} className="admin-review-card pending">
-                    <div className="review-header">
-                      <div><strong>{r.name}</strong> - {renderStars(r.rating)}</div>
-                      <div>{new Date(r.date).toLocaleDateString('fr-FR')}</div>
-                    </div>
-                    <p>{r.comment}</p>
-                    <div className="review-actions">
-                      <button className="btn-approve" onClick={() => approveReview(r.id)}><FaCheck /> Approuver</button>
-                      <button className="btn-reject" onClick={() => rejectReview(r.id)}><FaTimes /> Rejeter</button>
-                    </div>
-                  </div>
-                ))}
-                {activeTab === 'approved' && verifiedTestimonials.map(r => (
-                  <div key={r.id} className="admin-review-card approved">
-                    <div className="review-header">
-                      <div><strong>{r.name}</strong> - {renderStars(r.rating)}</div>
-                      <div>{new Date(r.date).toLocaleDateString('fr-FR')}</div>
-                    </div>
-                    <p>{r.comment}</p>
-                    <div className="review-actions">
-                      <button className="btn-delete" onClick={() => deleteReview(r.id)}><FaTrash /> Supprimer</button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="admin-stats">
-                <div className="stat">Total: {testimonials.length}</div>
-                <div className="stat">En attente: {pendingTestimonials.length}</div>
-                <div className="stat">Approuvés: {verifiedTestimonials.length}</div>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Bouton Admin - Redirige vers /admin */}
+        {/* <div className="admin-access">
+          <a 
+            href="/admin" 
+            className="admin-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/admin';
+            }}
+          >
+            <i className="fas fa-user-shield"></i> 
+            Administration
+          </a>
+        </div> */}
       </div>
     </section>
   );
