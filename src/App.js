@@ -54,8 +54,6 @@ function App() {
         </Routes>
 
         <Footer />
-        
-        {/* Bouton WhatsApp - s'affiche sur toutes les pages */}
         <WhatsAppButton />
       </div>
     </Router>
