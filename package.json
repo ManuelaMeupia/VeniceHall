@@ -25,7 +25,7 @@
   "scripts": {
   "start": "react-scripts start",
   "build": "react-scripts build",
-  "postbuild": "copy \"public\\_redirects\" \"build\\\"",
+  "postbuild": "copy public\\_redirects build\\ && copy public\\serve.json build\\",
   "test": "react-scripts test",
   "eject": "react-scripts eject"
 },
