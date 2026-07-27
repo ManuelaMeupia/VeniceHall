@@ -1,9 +1,10 @@
 services:
   - type: web
     name: venicehall
-    runtime: node
-    buildCommand: npm run build
-    publish: build
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+
     routes:
       - type: rewrite
         source: /*
