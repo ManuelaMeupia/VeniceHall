@@ -297,3 +297,38 @@
 .toggle-password:hover {
   color: #333;
 }
+
+/* Message d'erreur */
+.error-message {
+  background: #fde8e8;
+  border: 1px solid #f5c6cb;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #721c24;
+  font-size: 0.9rem;
+  animation: shake 0.5s ease;
+}
+
+.error-message i {
+  font-size: 1.1rem;
+  color: #dc3545;
+}
+
+/* Input en erreur */
+.password-input-wrapper input.input-error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Animation pour l'erreur */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}

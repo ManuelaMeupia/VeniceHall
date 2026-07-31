@@ -9,6 +9,7 @@ const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('pending');
@@ -25,12 +26,15 @@ const Admin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setError(''); //reinitialiser l'erreur
     if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
       sessionStorage.setItem('adminAuth', 'true');
       loadTestimonials();
+      setPassword('');
     } else {
-      alert('Mot de passe incorrect');
+      setError('Mot de passe incorrect. Veuillez réessayer.'); // ← Utiliser setError au lieu de alert
+      setPassword(''); // Vider le champ
     }
   };
 
@@ -82,23 +86,34 @@ const Admin = () => {
     return (
       <div className="admin-login">
         <div className="admin-login-box">
-          <h2>Espace Administrateur</h2>
+          <h2>🔐 Espace Administrateur</h2>
           <p>Veuillez entrer le mot de passe pour accéder au panneau</p>
+
+          {error && (
+            <div className="error-message">
+              <i className="fas fa-exclamation-circle"></i>
+              <span>{error}</span>
+            </div>
+          )}
+
           <form onSubmit={handleLogin}>
             <div className="password-input-container">
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Mot de passe"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-
-            <span
-              className="toggle-password"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </span>
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Mot de passe"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  if (error) setError(''); // Effacer l'erreur quand l'utilisateur tape
+                }}
+                className={error ? 'input-error' : ''}
+              />
+              <span
+                className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
             <button type="submit">Se connecter</button>
           </form>
