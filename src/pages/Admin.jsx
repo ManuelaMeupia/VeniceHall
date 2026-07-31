@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getTestimonials, updateTestimonial, deleteTestimonial } from '../services/testimonialService';
-import { FaCheck, FaTimes, FaTrash, FaStar, FaUser, FaEnvelope, FaCalendar } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaTrash, FaStar, FaUser, FaEnvelope, FaCalendar, FaEyeSlash, FaEye  } from 'react-icons/fa';
 import '../styles/Admin.css';
 
 const Admin = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('pending');
 
-  // Mot de passe admin (à changer)
-  const ADMIN_PASSWORD = 'admin123';
+  const ADMIN_PASSWORD = 'Admin.venice-h@ll';
 
   useEffect(() => {
-    // Vérifier si déjà authentifié
     const auth = sessionStorage.getItem('adminAuth');
     if (auth === 'true') {
       setIsAuthenticated(true);
@@ -83,15 +82,24 @@ const Admin = () => {
     return (
       <div className="admin-login">
         <div className="admin-login-box">
-          <h2>🔐 Espace Administrateur</h2>
+          <h2>Espace Administrateur</h2>
           <p>Veuillez entrer le mot de passe pour accéder au panneau</p>
           <form onSubmit={handleLogin}>
+            <div className="password-input-container">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Mot de passe"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            <span
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+            </div>
             <button type="submit">Se connecter</button>
           </form>
         </div>
