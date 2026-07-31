@@ -32,7 +32,7 @@ const Hero = ({ scrollToSection }) => {
           
           <h1 className="hero-title">
             <span className="hero-title-main">VENICE HALL</span>
-            <span className="hero-title-secondary">Salle de fête chic et haut de gamme</span>
+            <span className="hero-title-secondary">Salle de fête haut de gamme</span>
           </h1>
           
           <p className="hero-subtitle">

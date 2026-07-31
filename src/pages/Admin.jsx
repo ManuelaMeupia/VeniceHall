@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getTestimonials, updateTestimonial, deleteTestimonial } from '../services/testimonialService';
 import { FaCheck, FaTimes, FaTrash, FaStar, FaUser, FaEnvelope, FaCalendar, FaEyeSlash, FaEye  } from 'react-icons/fa';
 import { PiProhibitBold } from "react-icons/pi";
+import ConfirmModal from '../components/ConfirmModal';
 import '../styles/Admin.css';
 
 const Admin = () => {
@@ -14,6 +15,12 @@ const Admin = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('pending');
+
+  const [confirmModal, setConfirmModal] = useState({
+    isOpen: false,
+    id: null,
+    action: null
+  });
 
   const ADMIN_PASSWORD = 'Admin.venice-h@ll';
 
@@ -66,17 +73,42 @@ const Admin = () => {
     }
   };
 
-  const rejectReview = async (id) => {
-    if (window.confirm('Supprimer cet avis ?')) {
+  // Fonction pour ouvrir le modal de confirmation
+  const openConfirmModal = (id, action) => {
+    setConfirmModal({
+      isOpen: true,
+      id: id,
+      action: action
+    });
+  };
+
+   // Fonction pour fermer le modal de confirmation
+  const closeConfirmModal = () => {
+    setConfirmModal({
+      isOpen: false,
+      id: null,
+      action: null
+    });
+  };
+
+  // Fonction pour confirmer la suppression
+  const confirmDelete = async () => {
+    if (confirmModal.id) {
       try {
-        await deleteTestimonial(id);
+        await deleteTestimonial(confirmModal.id);
         await loadTestimonials();
       } catch (error) {
         console.error('Erreur:', error);
+      } finally {
+        closeConfirmModal();
       }
     }
   };
 
+  // Modifier la fonction rejectReview
+  const rejectReview = (id) => {
+    openConfirmModal(id, 'delete');
+  };
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
       <FaStar key={i} className={i < rating ? 'star-filled' : 'star-empty'} />
@@ -215,6 +247,17 @@ const Admin = () => {
           ))
         )}
       </div>
+
+      <ConfirmModal
+        isOpen={confirmModal.isOpen}
+        onClose={closeConfirmModal}
+        onConfirm={confirmDelete}
+        title="Supprimer l'avis ?"
+        message="Cette action est irréversible. Êtes-vous sûr de vouloir supprimer cet avis définitivement ?"
+        confirmText="Supprimer"
+        cancelText="Annuler"
+      />
+      
     </div>
   );
 };
