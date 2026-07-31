@@ -332,3 +332,16 @@
   60% { transform: translateX(-5px); }
   80% { transform: translateX(5px); }
 }
+
+.admin-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.admin-icon {
+  color: #dc3545;
+  font-size: 1.8rem;
+  margin-top: 10px;
+}

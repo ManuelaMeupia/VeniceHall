@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getTestimonials, updateTestimonial, deleteTestimonial } from '../services/testimonialService';
 import { FaCheck, FaTimes, FaTrash, FaStar, FaUser, FaEnvelope, FaCalendar, FaEyeSlash, FaEye  } from 'react-icons/fa';
+import { PiProhibitBold } from "react-icons/pi";
 import '../styles/Admin.css';
 
 const Admin = () => {
@@ -33,7 +34,7 @@ const Admin = () => {
       loadTestimonials();
       setPassword('');
     } else {
-      setError('Mot de passe incorrect. Veuillez réessayer.'); // ← Utiliser setError au lieu de alert
+      setError('Mot de passe incorrect. Veuillez réessayer.'); // setError au lieu de alert
       setPassword(''); // Vider le champ
     }
   };
@@ -86,7 +87,10 @@ const Admin = () => {
     return (
       <div className="admin-login">
         <div className="admin-login-box">
-          <h2>🔐 Espace Administrateur</h2>
+          <h2 className="admin-title">
+            <PiProhibitBold className="admin-icon" />
+              Espace Administrateur
+          </h2>
           <p>Veuillez entrer le mot de passe pour accéder au panneau</p>
 
           {error && (
@@ -128,7 +132,7 @@ const Admin = () => {
   return (
     <div className="admin-panel">
       <div className="admin-header">
-        <h1>📊 Panneau d'administration</h1>
+        <h1> Panneau d'administration</h1>
         <button className="btn-logout" onClick={handleLogout}>
           Déconnexion
         </button>
