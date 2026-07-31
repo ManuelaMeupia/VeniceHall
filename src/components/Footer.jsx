@@ -143,7 +143,7 @@ const Footer = () => {
                 <i className="fas fa-phone-alt"  style={{color:"#5c2abd"}}></i>
                 <div className="contact-detail">
                   <span className="contact-label">Téléphone</span>
-                  <span>+237 6 51 61 98 94</span>
+                  <span>+237 6 51 61 98 94 | 6 51 31 83 47</span>
                 </div>
               </li>
               <li>
