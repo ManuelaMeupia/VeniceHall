@@ -4,8 +4,7 @@ import '../styles/Navbar.css';
 
 // Import des icônes React
 import { 
-  AiFillHome, 
-  AiOutlineSearch,
+  AiFillHome
 } from "react-icons/ai";
 import { 
   FaImages, 
@@ -163,22 +162,10 @@ const Navbar = () => {
             <span className="logo-icon">
               <img src="/img/Logo.jpeg" alt="Venice Hall" className="logo-image" />
             </span>
-            <div className="logo-text-wrapper">
+            {/* <div className="logo-text-wrapper">
               <span className="logo-text-primary">Venice Hall</span>
-            </div>
+            </div> */}
           </div>
-        </div>
-
-        {/* Barre de recherche */}
-        <div className={`search-wrapper ${showSearch ? 'active' : ''}`} ref={searchRef}>
-          <input 
-            type="text" 
-            placeholder="Rechercher une salle..."
-            className="search-input"
-          />
-          <button className="search-btn">
-            <AiOutlineSearch />
-          </button>
         </div>
 
         {/* Menu de navigation */}
